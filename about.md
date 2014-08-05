@@ -4,7 +4,7 @@ title: About Sourya Kakarla
 permalink: /about/
 ---
 I am a 3rd Year Computer Science Undergrad student at [IIT Kharagpur](http://www.iitkgp.ac.in/).
-My skills include `CPP`, `Python`, `Java`, `Bash`, `Javascript` in no particular order.
+My skills include `C`, `CPP`, `Python`, `Java`, `Bash`, `Javascript` in no particular order.
 
 Recently as an intern at a startup, I have been a part of a team which built a webapp using [MEAN Stack](http://mean.io/).
 It is a great development enviornment, challenging the traditional `LAMP` stack. 

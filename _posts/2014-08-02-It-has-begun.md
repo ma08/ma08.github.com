@@ -40,7 +40,7 @@ This might not be the right way of things to do but it sure worked. Feel free to
 
 In the end I didn't use `JekyllBootstrap` at all but it's an awesome setup to startoff with. I used [plain jekyll](http://jekyllrb.com/) and forked off [some bloke's theme](https://github.com/vinitkumar/gcode) I found [on reddit](http://www.reddit.com/r/Jekyll/comments/29j38y/gcode_a_clean_and_simple_theme_for_jekyll_based/) which was just budding. If you feel like using it, don't. I had to change lots of stuff to get it to work. I would advise to pick any of the popular themes.
 
-<br />You might want to [learn a bit about markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) before you delve into `jekyll`. If you use [stackoverflow](http://stackoverflow.com) regularly, you must be acquainted with the basics of `markdown` by now. I hope you are not the kind who just use it without contributing. Instead of browsing 9gag all day, [go over there](http://stackoverflow.com) and help a pour soul or two.
+<br />You might want to [learn a bit about markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) before you delve into `jekyll`. If you use [stackoverflow](http://stackoverflow.com) regularly, you must be acquainted with the basics of `markdown` by now. I hope you are not the kind who just use it without contributing. Instead of browsing 9gag all day, [go over there](http://stackoverflow.com) and help a poor soul or two.
 
 What I found difficult was changing the frontend stuff. I am no good at frontend webdevelopment and it took a lot to get the things right, so I was constantly using themes on the net instead of creating a custom fork off a base theme.
 
