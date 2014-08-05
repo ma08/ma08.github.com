@@ -1,9 +1,10 @@
 _site/*
 _theme_packages/*
+*~
+build.sh
 
 Thumbs.db
 .DS_Store
-build.sh
 
 !.gitkeep
 
