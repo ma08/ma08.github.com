@@ -9,7 +9,7 @@ git commit -m "$1"
 git push origin master 
 cd ..
 rm -rf public_html/*
-echo <password> | sshfs skakarla@cse.iitkgp.ac.in:/public_html public_html -o workaround=rename -o password_stdin
+echo ARSENAL4eva | sshfs skakarla@cse.iitkgp.ac.in:/public_html public_html -o workaround=rename -o password_stdin
 rm -rf public_html/*
 cp -rf dep/* public_html/
 sleep 5
