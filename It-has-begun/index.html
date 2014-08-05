@@ -36,7 +36,14 @@
         <!--Change the  URL here if working on an absolute domain-->
         <li><a href="/"><span class="mega-octicon octicon-terminal" style="margin-right: 6px;"></span>'BLOB'</a></li>
         <li><a href="/about/"><span class="mega-octicon octicon-person" style="margin-right: 6px;"></span>About</a></li>
+        <li><a href="https://github.com/ma08"><span class="mega-octicon octicon-mark-github" style="margin-right: 6px;"></span></a></li>
+        <li><a href="http://stackoverflow.com/users/3465519/ma08"><img src="/so-icon.png" width="30" height="30" style="margin-right: 6px;"></a></li>
       </ul>
+      <!--
+<a href="http://stackoverflow.com/users/3465519/ma08">
+<img src="http://stackoverflow.com/users/flair/3465519.png?theme=dark" width="108" height="28" alt="profile for ma08 at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for ma08 at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+</a>
+-->
   </header>
 </div>
 
@@ -69,7 +76,7 @@ It was build to be compliant with <a href="https://pages.github.com/">GitHub Pag
 <span class="nv">$ </span>git push origin master
 </code></pre></div>
 
-<p>If only it was that simple. Getting it onto a <code class="inline-code">github</code> page was fine but to use it for my University webpage, man it was a pain in the ass. My webpage is <a href="http://cse.iitkgp.ac.in/%7Eskakarla">http://cse.iitkgp.ac.in/~skakarla</a> , meaning a subdirectory <code class="inline-code">~skakarla</code> on the host <code class="inline-code">http://cse.iitkgp.ac.in</code>. No matter what I tried, I couldn&#39;t get <code class="inline-code">jekyll</code> to configure to host on a subdirectory as it was using <code class="inline-code">rootish links using "/blah"</code>. I went through numerous <code class="inline-code">github</code> issues, <code class="inline-code">stackoverflow</code> questions and nothing worked. So I took the ugly and easy way out and got it work with a combination of <code class="inline-code">find</code> and <code class="inline-code">sed</code>.</p>
+<p>If only it was that simple. Getting it onto a <code class="inline-code">github</code> page was fine but to use it for my University webpage, man it was a pain in the ass. My webpage is <a href="http://cse.iitkgp.ac.in/%7Eskakarla">http://cse.iitkgp.ac.in/~skakarla</a> , meaning a subdirectory <code class="inline-code">~skakarla</code> on the host <code class="inline-code">http://cse.iitkgp.ac.in</code>. No matter what I tried, I couldn&#39;t get <code class="inline-code">jekyll</code> to configure to host on a subdirectory as it was using <code class="inline-code">rootish links using "/blah"</code>. I went through numerous <code class="inline-code">github</code> issues, <code class="inline-code">stackoverflow</code> questions and nothing worked. So I took the ugly and easy way out and got it working with a combination of <code class="inline-code">find</code> and <code class="inline-code">sed</code>.</p>
 
 <div class="highlight"><pre><code class="bash"><span class="c">#this adds the line &lt;base href=&quot;http://cse.iitkgp.ac.in/~skakarla&quot;&gt; to the top of every line ending with .html.</span>
 <span class="c">#Rest of the gibberish is delimiting the symbols</span>
