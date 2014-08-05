@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<title>An irrevelant blob</title>
+<meta name="description" content="An irrevelant blob">
+<meta name="keywords" content="intro, beginner, jekyll, tutorial">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="It Has Begun &#8211; ">
+<meta property="og:description" content="An irrevelant blob">
+<meta property="og:url" content="/It-has-begun/">
+<meta property="og:site_name" content="">
+
+<!-- Webmaster Tools verfication -->
+
+
+
+
+<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/css/base.css" type="text/css" />
+<!--<link rel="stylesheet" href="/css/github.min.css" type="text/css" />-->
+<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+<link rel="stylesheet" href="/css/octicons.css" type="text/css" />
+<link href='http:/fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+  <div class="header-container">
+  <header>
+      <ul class="nav">
+        <!--Change the  URL here if working on an absolute domain-->
+        <li><a href="/"><span class="mega-octicon octicon-terminal" style="margin-right: 6px;"></span>'BLOB'</a></li>
+        <li><a href="/about/"><span class="mega-octicon octicon-person" style="margin-right: 6px;"></span>About</a></li>
+      </ul>
+  </header>
+</div>
+
+  <div class="container">
+    <p class="intro">
+      A clueless, curious programmer's ramblings.
+    </p>
+  <h2>It Has Begun</h2>
+<p class="meta">02 Aug 2014</p>
+
+<div class="post">
+<p>So this is my first post on my <code class="inline-code">blob</code>. I feel sorry for you if you are reading this as either you have delved into the depths of the interwebs or you are an acquaintance of mine who was oblidged to click on the link due to my aggressive publicising the shit out of this utter crap of a blob.</p>
+
+<p><code class="inline-code">Disclaimer: The code sample gems I provide might not be the best practices in the programming jargon.</code><br />
+<code class="inline-code">Feel free to comment if you can suggest an improvement.</code> And sorry for using <code class="inline-code">disqus</code>.</p>
+
+<p>You will be forgiven if you think that this site dated 10 years back, when there was no <a href="http://rubyonrails.org">Ruby on Rails</a>, <a href="https://angularjs.org/">Angular</a> and all the other fancy stuff. Still <code class="inline-code">static pages are immortal</code>. Especially if you are are in no position to host/buy a server and stick to <a href="https://pages.github.com/">GitHub Pages</a> and <a href="http://cse.iitkgp.ac.in/%7Eskakarla">hosting provided </a> by <a href="http://iitkgp.ac.in">your University</a>.</p>
+
+<p>With minimal experience in webdesign, I had to pick up a <code class="inline-code">CMS</code> which requires little styling . 
+I would have loved to give a shot with <a href="https://angularjs.org/">Angular</a> and <a href="http://nodejs.org/">Node</a> 
+as I have worked on <a href="http://mean.io/">MEAN Stack</a>(check it out if you ever feel like developing a webapp) as an intern but I don&#39;t have the resources to set up a
+<code class="inline-code">node server</code>. So for now, static pages ftw!</p>
+
+<p>After hours of frantic googling, I have decided to go on with <a href="http://jekyllbootstrap.com/">JekyllBootstrap</a> for my attempt of a blog, which I will proceed to call <code class="inline-code">blob</code>.
+It was build to be compliant with <a href="https://pages.github.com/">GitHub Pages</a> and it was up and running before I knew what I was upto.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git clone https://github.com/plusjade/jekyll-bootstrap.git USERNAME.github.com
+<span class="nv">$ </span><span class="nb">cd </span>USERNAME.github.com
+<span class="nv">$ </span>git remote <span class="nb">set</span>-url origin git@github.com:USERNAME/USERNAME.github.com.git
+<span class="nv">$ </span>git push origin master
+</code></pre></div>
+
+<p>If only it was that simple. Getting it onto a <code class="inline-code">github</code> page was fine but to use it for my University webpage, man it was a pain in the ass. My webpage is <a href="http://cse.iitkgp.ac.in/%7Eskakarla">http://cse.iitkgp.ac.in/~skakarla</a> , meaning a subdirectory <code class="inline-code">~skakarla</code> on the host <code class="inline-code">http://cse.iitkgp.ac.in</code>. No matter what I tried, I couldn&#39;t get <code class="inline-code">jekyll</code> to configure to host on a subdirectory as it was using <code class="inline-code">rootish links using "/blah"</code>. I went through numerous <code class="inline-code">github</code> issues, <code class="inline-code">stackoverflow</code> questions and nothing worked. So I took the ugly and easy way out and got it work with a combination of <code class="inline-code">find</code> and <code class="inline-code">sed</code>.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#this adds the line &lt;base href=&quot;http://cse.iitkgp.ac.in/~skakarla&quot;&gt; to the top of every line ending with .html.</span>
+<span class="c">#Rest of the gibberish is delimiting the symbols</span>
+<span class="nv">$ </span>find &lt;foldername&gt; -type f  -name <span class="s1">&#39;*html&#39;</span> -printf <span class="s1">&#39;%p &#39;</span> <span class="p">|</span> xargs sed -i <span class="s1">&#39;1s/^/&lt;base href=\&quot;http:\/\/cse\.iitkgp\.ac\.in\/~skakarla\/\&quot;&gt;\n /&#39;</span>
+<span class="c">#This replaces every instance of &quot;/ with &quot;. Because jekyll used root to specify links</span>
+<span class="c">#And as I was hosting on a subfolder, everything was screwed</span>
+<span class="nv">$ </span>find &lt;foldername&gt; -type f  -name <span class="s1">&#39;*html&#39;</span> -printf <span class="s1">&#39;%p &#39;</span> <span class="p">|</span> xargs sed -i <span class="s1">&#39;s/\&quot;\//\&quot;/g&#39;</span>
+</code></pre></div>
+
+<p>This might not be the right way of things to do but it sure worked. Feel free to point out any <a href="https://lkml.org/lkml/2014/7/24/584">sloth that was dropped on the head as a baby retardation levels in my code</a>.</p>
+
+<p>In the end I didn&#39;t use <code class="inline-code">JekyllBootstrap</code> at all but it&#39;s an awesome setup to startoff with. I used <a href="http://jekyllrb.com/">plain jekyll</a> and forked off <a href="https://github.com/vinitkumar/gcode">some bloke&#39;s theme</a> I found <a href="http://www.reddit.com/r/Jekyll/comments/29j38y/gcode_a_clean_and_simple_theme_for_jekyll_based/">on reddit</a> which was just budding. If you feel like using it, don&#39;t. I had to change lots of stuff to get it to work. I would advise to pick any of the popular themes.</p>
+
+<p><br />You might want to <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">learn a bit about markdown</a> before you delve into <code class="inline-code">jekyll</code>. If you use <a href="http://stackoverflow.com">stackoverflow</a> regularly, you must be acquainted with the basics of <code class="inline-code">markdown</code> by now. I hope you are not the kind who just use it without contributing. Instead of browsing 9gag all day, <a href="http://stackoverflow.com">go over there</a> and help a pour soul or two.</p>
+
+<p>What I found difficult was changing the frontend stuff. I am no good at frontend webdevelopment and it took a lot to get the things right, so I was constantly using themes on the net instead of creating a custom fork off a base theme.</p>
+
+<h2>The <code class="inline-code">Script</code></h2>
+
+<p>So I got the gig running for the <code class="inline-code">github</code> pages and my University webpage but I had to run those commands before pushing to the University webpage. And I had to maintain two copies of the generated site. I had to <code class="inline-code">push</code> it to the repo to update the <code class="inline-code">github</code> page(if you ever run out of retarded <code class="inline-code">commit</code> messages, <a href="https://github.com/ma08/ma08.github.com/commits/master">help yourself</a>) and use <code class="inline-code">ftp</code> to put it on the University page. I got fed up and have written a tiny <code class="inline-code">shell script</code> to do all these things with a single command and not even a password prompt for the authentication with the host.</p>
+
+<p>This script resides in the jekyll <code class="inline-code">source folder</code>. The <code class="inline-code">source folder</code>, <code class="inline-code">githubrep folder</code>, <code class="inline-code">uni webpagefolder</code> and <code class="inline-code">mount dir</code> are all on the same level in the filesystem.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="lineno"> 1</span> jekyll build -d ../&lt;githubrepo folder&gt;#Put the generated site
+<span class="lineno"> 2</span> jekyll build -d ../&lt;uni webpagefolder&gt;#Put the generated site 
+<span class="lineno"> 3</span> find &lt;uni webpagefolder&gt; -type f  -name <span class="s1">&#39;*html&#39;</span> -printf <span class="s1">&#39;%p &#39;</span> <span class="p">|</span> xargs sed -i <span class="s1">&#39;1s/^/&lt;base href=\&quot;http:\/\/cse\.iitkgp\.ac\.in\/~skakarla\/\&quot;&gt;\n /&#39;</span>
+<span class="lineno"> 4</span> find &lt;uni webpagefolder&gt; -type f  -name <span class="s1">&#39;*html&#39;</span> -printf <span class="s1">&#39;%p &#39;</span> <span class="p">|</span> xargs sed -i <span class="s1">&#39;s/\&quot;\//\&quot;/g&#39;</span>
+<span class="lineno"> 5</span> find &lt;uni webpagefolder&gt; -type f  -name <span class="s1">&#39;*html&#39;</span> -printf <span class="s1">&#39;%p &#39;</span> <span class="p">|</span> xargs sed -i <span class="s2">&quot;s/&#39;\//&#39;/g&quot;</span>
+<span class="lineno"> 6</span> <span class="nb">cd</span> ../&lt;githubrepo folder&gt;
+<span class="lineno"> 7</span> git add -A <span class="c">#staging the files</span>
+<span class="lineno"> 8</span> git commit -m <span class="s2">&quot;$1&quot;</span> <span class="c">#Took the commit message as an argument to the script</span>
+<span class="lineno"> 9</span> git push origin master <span class="c">#pushing it to github </span>
+<span class="lineno">10</span> <span class="nb">cd</span> ..
+<span class="lineno">11</span> rm -rf &lt;mount dir&gt;/* <span class="c">#Deleting the old stuff from the mount folder</span>
+<span class="lineno">12</span> <span class="c">#Now comes the fancy stuff. I mount my webpage host folder using sshfs on the &lt;mount dir&gt; which is a local folder.</span>
+<span class="lineno">13</span> <span class="c">#This folder should always be empty before mounting</span>
+<span class="lineno">14</span> <span class="c">#The echo is to give the password to the password_stdin. I know it&#39;s bad to store the password as plain text in a file. So spare me the vile.</span>
+<span class="lineno">15</span> <span class="nb">echo</span> &lt;your smartass password here&gt; <span class="p">|</span> sshfs skakarla@cse.iitkgp.ac.in:/public_html &lt;mount dir&gt; -o <span class="nv">workaround</span><span class="o">=</span>rename -o password_stdin
+<span class="lineno">16</span> <span class="c">#Here onwards changes in &lt;mount dir&gt; get reflected on the actual hosting folder in the server.</span>
+<span class="lineno">17</span> rm -rf &lt;mount dir&gt;/* <span class="c">#Deleting the old stuff from server</span>
+<span class="lineno">18</span> cp -rf &lt;uni webpage folder&gt;/* &lt;mount dir&gt;/ <span class="c">#Copying the new stuff into the server</span>
+<span class="lineno">19</span> sleep 5 <span class="c">#This is put in to allow the copy to complete I am correct.</span>
+<span class="lineno">20</span> <span class="c">#Without the sleep the script was trying to unmount without waiting for the copying to finish</span>
+<span class="lineno">21</span> fusermount -u &lt;mount dir&gt; <span class="c">#Unmount</span>
+</code></pre></div>
+
+<p>I was fed up of giving the <code class="inline-code">github</code> credentials.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>git config credential.helper store
+<span class="c">#This will store your git repo&#39;s username and password</span>
+<span class="c">#and never asks for the credentials again</span>
+</code></pre></div>
+
+<p>It is not safe but it was what I wanted.</p>
+
+<p>So with a simple command I get my <code class="inline-code">blob</code> to update on the <code class="inline-code">github</code> pages and University webpage. <a href="http://www.reactiongifs.com/r/mgc.gif">It&#39;s magic</a>.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nv">$ </span>./build.sh <span class="s1">&#39;added new post - how not to write a blob post&#39;</span>
+<span class="c">#The string is the commit message for the github repo if you weren&#39;t paying attention.</span>
+</code></pre></div>
+
+<h2>Plugin Compatibility on Github Pages</h2>
+
+<p>One thing to keep in mind is that <code class="inline-code">github</code> pages allow you to <code class="inline-code">push</code> both the <code class="inline-code">jekyll</code> source where the posts are in <code class="inline-code">markdown</code> (it will use the source to produce the final site using it&#39;s <code class="inline-code">jekyll</code> engine, but it is pretty outdated) and the final site itself (all the <code class="inline-code">html</code> and stuff). I advise you to use final site - the <code class="inline-code">_site</code> folder as the plugins (like <code class="inline-code">pygments</code> for code highlighting) don&#39;t work when you push the source.
+I used the <a href="https://github.com/ma08/ma08.github.com">master branch</a> for pushing the generated sited and created <a href="https://github.com/ma08/ma08.github.com/tree/source">another branch</a> for the source.</p>
+
+<p>Again I would like to reiterate that this might not be the right way to do stuff. But the reason I put it was it freaking  <code class="inline-code">works</code>. Maybe the code quality will improve over time ( which I am oblidged to say)</p>
+
+<p>So hosting the same site effectively on two url&#39;s is retarded as you can always use redirection. But I was willing to solve the use case using a different approach (atleast that&#39;s what I told myself).</p>
+
+<h2>Disqus comments across both the sites</h2>
+
+<p>On a finishing note, as I am hosting the same site on two places, the <code class="inline-code">disqus</code> comments might lead to confusion if at all someone cared to comment. So to make things easy for that blessed soul I made sure the comments are reflected in both the sites.
+<code class="inline-code">disqus_identifier</code> is the trick.</p>
+
+<div class="highlight"><pre><code class="html"><span class="lineno"> 1</span> <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;disqus_thread&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="lineno"> 2</span> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+<span class="lineno"> 3</span>   <span class="cm">/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */</span>
+<span class="lineno"> 4</span>   <span class="kd">var</span> <span class="nx">disqus_shortname</span> <span class="o">=</span> <span class="s1">&#39;sourya4&#39;</span><span class="p">;</span> <span class="c1">// required: replace example with your forum shortname</span>
+<span class="lineno"> 5</span>   <span class="kd">var</span> <span class="nx">disqus_identifier</span> <span class="o">=</span> <span class="s1">&#39;_posts/2014-08-02-It-has-begun.md&#39;</span><span class="p">;</span> <span class="c1">//This is the magic part.</span>
+<span class="lineno"> 6</span>   <span class="c1">//Make sure this is same for both the pages (posts) so you can comment across both the pages</span>
+<span class="lineno"> 7</span>   <span class="c1">//I used the post path.</span>
+<span class="lineno"> 8</span>   <span class="cm">/* * * DON&#39;T EDIT BELOW THIS LINE * * */</span>
+<span class="lineno"> 9</span>   <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="lineno">10</span>     <span class="kd">var</span> <span class="nx">dsq</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span> <span class="nx">dsq</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;text/javascript&#39;</span><span class="p">;</span> <span class="nx">dsq</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="lineno">11</span>     <span class="nx">dsq</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">&#39;http://&#39;</span> <span class="o">+</span> <span class="nx">disqus_shortname</span> <span class="o">+</span> <span class="s1">&#39;.disqus.com/embed.js&#39;</span><span class="p">;</span>
+<span class="lineno">12</span>     <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;head&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]).</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">dsq</span><span class="p">);</span>
+<span class="lineno">13</span>   <span class="p">})();</span>
+<span class="lineno">14</span> <span class="nt">&lt;/script&gt;</span>
+<span class="lineno">15</span> <span class="nt">&lt;noscript&gt;</span>Please enable JavaScript to view the <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http:/disqus.com/?ref_noscript&quot;</span><span class="nt">&gt;</span>comments powered by Disqus.<span class="nt">&lt;/a&gt;&lt;/noscript&gt;</span>
+<span class="lineno">16</span> <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http:/disqus.com&quot;</span> <span class="na">class=</span><span class="s">&quot;dsq-brlink&quot;</span><span class="nt">&gt;</span>comments powered by <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;logo-disqus&quot;</span><span class="nt">&gt;</span>Disqus<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+</code></pre></div>
+
+<p>Thanks.</p>
+
+</div>
+
+<div class="keep-in-touch">
+  <p>
+    
+  </p>
+</div>
+<a href="https:/twitter.com/share" class="twitter-share-button" data-via="" data-size="large" data-hashtags="gotchacode">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+':/platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<!-- Add Disqus comments. -->
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'sourya4'; // required: replace example with your forum shortname
+  var disqus_identifier = '_posts/2014-08-02-It-has-begun.md';
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http:/disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http:/disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+  
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https:/ssl' : 'http:/www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+  </div><!-- /.main -->
+</body>
+</html>
