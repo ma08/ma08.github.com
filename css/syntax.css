@@ -117,14 +117,7 @@ pre a:only-of-type::before {
     padding: 10px;
 }
 code.inline-code {
-    padding: 0.2em 0.4em;
-    background-color: #fdfdfd;
-    @include box-shadow(0 1px rgba(255,255,255,.75), inset 0 1px 3px rgba(0,0,0,.07));
-
-    color: $light-gray;
-
-    @include border-radius(4px);
-    border: solid 1px #dedede;
-
-    white-space: nowrap;
+    border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .2em;
 }
