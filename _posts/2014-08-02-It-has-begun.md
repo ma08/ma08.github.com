@@ -3,10 +3,12 @@ layout: post
 tagline: "Supporting tagline"
 tags : [intro, beginner, jekyll, tutorial]
 ---
-So this is my first post on my `blob`. I feel sorry for you if you are reading this as either you have delved into the depths of the interwebs or you are an acquaintance of mine who was oblidged to click on the link due to my aggressive publicising the shit out of this utter crap of a blob.
+So this is my first post on my `blob`. I feel sorry for you if you are reading this as either you have delved into the depths of the interwebs or you are an acquaintance of mine who was obliged to click on the link due to my aggressive publicising the shit out of this utter crap of a blob.
 
-`Disclaimer: The code sample gems I provide might not be the best practices in the programming jargon.`<br />
-`Feel free to comment if you can suggest an improvement.` And sorry for using `disqus`.
+> Disclaimer: The code sample gems I provide might not be the best practices in the programming jargon.
+Feel free to comment if you can suggest an improvement.
+
+And sorry for using `disqus`.
 
 You will be forgiven if you think that this site dated 10 years back, when there was no [Ruby on Rails](http://rubyonrails.org), [Angular](https://angularjs.org/) and all the other fancy stuff. Still `static pages are immortal`. Especially if you are are in no position to host/buy a server and stick to [GitHub Pages](https://pages.github.com/) and [hosting provided ](http://cse.iitkgp.ac.in/~skakarla) by [your University](http://iitkgp.ac.in).
 
@@ -25,7 +27,7 @@ $ git remote set-url origin git@github.com:USERNAME/USERNAME.github.com.git
 $ git push origin master
 {% endhighlight %}
 
-If only it was that simple. Getting it onto a `github` page was fine but to use it for my University webpage, man it was a pain in the ass. My webpage is [http://cse.iitkgp.ac.in/~skakarla](http://cse.iitkgp.ac.in/~skakarla) , meaning a subdirectory `~skakarla` on the host `http://cse.iitkgp.ac.in`. No matter what I tried, I couldn't get `jekyll` to configure to host on a subdirectory as it was using `rootish links using "/blah"`. I went through numerous `github` issues, `stackoverflow` questions and nothing worked. So I took the ugly and easy way out and got it work with a combination of `find` and `sed`.
+If only it was that simple. Getting it onto a `github` page was fine but to use it for my University webpage, man it was a pain in the ass. My webpage is [http://cse.iitkgp.ac.in/~skakarla](http://cse.iitkgp.ac.in/~skakarla) , meaning a subdirectory `~skakarla` on the host `http://cse.iitkgp.ac.in`. No matter what I tried, I couldn't get `jekyll` to configure to host on a subdirectory as it was using `rootish links using "/blah"`. I went through numerous `github` issues, `stackoverflow` questions and nothing worked. So I took the ugly and easy way out and got it working with a combination of `find` and `sed`.
 
 {% highlight bash %}
 #this adds the line <base href="http://cse.iitkgp.ac.in/~skakarla"> to the top of every line ending with .html.
@@ -36,7 +38,7 @@ $ find <foldername> -type f  -name '*html' -printf '%p ' | xargs sed -i '1s/^/<b
 $ find <foldername> -type f  -name '*html' -printf '%p ' | xargs sed -i 's/\"\//\"/g'
 {% endhighlight %}
 
-This might not be the right way of things to do but it sure worked. Feel free to point out any [sloth that was dropped on the head as a baby retardation levels in my code](https://lkml.org/lkml/2014/7/24/584).
+This might not be the right way to do things but it sure worked. Feel free to point out any [sloth that was dropped on the head as a baby retardation levels in my code](https://lkml.org/lkml/2014/7/24/584).
 
 In the end I didn't use `JekyllBootstrap` at all but it's an awesome setup to startoff with. I used [plain jekyll](http://jekyllrb.com/) and forked off [some bloke's theme](https://github.com/vinitkumar/gcode) I found [on reddit](http://www.reddit.com/r/Jekyll/comments/29j38y/gcode_a_clean_and_simple_theme_for_jekyll_based/) which was just budding. If you feel like using it, don't. I had to change lots of stuff to get it to work. I would advise to pick any of the popular themes.
 
@@ -89,9 +91,9 @@ $ ./build.sh 'added new post - how not to write a blob post'
 One thing to keep in mind is that `github` pages allow you to `push` both the `jekyll` source where the posts are in `markdown` (it will use the source to produce the final site using it's `jekyll` engine, but it is pretty outdated) and the final site itself (all the `html` and stuff). I advise you to use final site - the `_site` folder as the plugins (like `pygments` for code highlighting) don't work when you push the source.
 I used the [master branch](https://github.com/ma08/ma08.github.com) for pushing the generated sited and created [another branch](https://github.com/ma08/ma08.github.com/tree/source) for the source.
 
-Again I would like to reiterate that this might not be the right way to do stuff. But the reason I put it was it freaking  `works`. Maybe the code quality will improve over time ( which I am oblidged to say)
+Again I would like to reiterate that this might not be the right way to do stuff. But the reason I put it was it freaking  `works`. Maybe the code quality will improve over time ( which I am obliged to say)
 
-So hosting the same site effectively on two url's is retarded as you can always use redirection. But I was willing to solve the use case using a different approach (atleast that's what I told myself).
+So hosting the same site effectively on two urls is retarded as you can always use redirection. But I was willing to solve the use case using a different approach (atleast that's what I told myself).
 
 ##Disqus comments across both the sites
 On a finishing note, as I am hosting the same site on two places, the `disqus` comments might lead to confusion if at all someone cared to comment. So to make things easy for that blessed soul I made sure the comments are reflected in both the sites.
