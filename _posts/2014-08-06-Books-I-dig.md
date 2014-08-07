@@ -91,8 +91,8 @@ An exchange between two characters.
 
 I've saved the good stuff for you to read. I made sure not to include any spoilers. Start reading on a vacation  as reading on working days can be pretty tiring as you can't stop. 
 
-##John Dies At The End. ;)
-All hail Korrok.
+##John Dies at the End by David Wong.
+All hail Korrok.<br />
 This is what I call an unclassic book. I discovered it while searching for a decent read on this fantastic [subreddit](http://www.reddit.com/r/books/). It is so bad that it's good. The writer has an unconvential style(or some would say it's bullshit) and it worked on me . It had an effect on my writing. I'm worried about the repurcussions as I am more inlcined to jot expletives than ever before. Might not be your cup of tea, but an avid reader should have had atleast one of this kind in his bag by now. It's basically utter crap. But the crapiness gets to the point that it's good. I had chuckled a lot while reading this - not smiled, chuckled. It was sort of a guilty pleasure. I don't remember too many books leaving a wide grin on my face.  What got me was the style of writing - a different experience from all the above stated ones. Here is a peek.
 
 >"Hello?"<br />
