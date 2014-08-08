@@ -108,6 +108,6 @@ As long as it's code, it's ok right?
 Ok that's it. This might have been the most lamest book listings you have seen, but atleast you have seen it. Thanks.
 As I said something about literature at the start, have some free [poems](https://www.youtube.com/watch?v=DFYBGrkz9h0)[HD].
 
-I am willing to bet that there might have been atleast one typo or a grammatical mistake hiding above somewhere. If you spot it, please sumbit a pull request if you're acquainted with `github`. 
+I am willing to bet that there might have been atleast one typo or a grammatical mistake hiding above somewhere. If you spot it, please [sumbit a pull request](https://github.com/ma08/ma08.github.com/blob/source/_posts/2014-08-06-Books-I-dig.md) if you're acquainted with `github`. 
 
 
