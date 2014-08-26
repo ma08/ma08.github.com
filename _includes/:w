@@ -1,0 +1,14 @@
+<div class="header-container">
+  <header>
+      <ul class="nav">
+        <!--Change the  URL here if working on an absolute domain-->
+        <li><a href="/"><span class="mega-octicon octicon-terminal" style="margin-right: 6px;"></span>'BLOB'</a></li>
+        <li><a href="/about/"><span class="mega-octicon octicon-person" style="margin-right: 6px;"></span>About</a></li>
+        <li>
+<a href="http://stackoverflow.com/users/3465519/ma08">
+<img src="http://stackoverflow.com/users/flair/3465519.png?theme=dark" width="108" height="38" alt="profile for ma08 at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for ma08 at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+</a>
+</li>
+      </ul>
+  </header>
+</div>

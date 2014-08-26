@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,3 +99,20 @@
   </div><!-- /.main -->
 </body>
 </html>
+=======
+---
+layout: default
+title: ma08 and his ramblings
+---
+
+<div class="listing">
+    {% for post in paginator.posts %}
+    <div class="post other link">
+      <h2><span class="mega-octicon octicon-flame" style="min-width: 32px;"></span><a href="{{post.url}}">{{ post.title }}</a></h2>
+      <p class="post-date">{{ post.date | date_to_string }}</p>
+
+      <p>{{ post.excerpt }}</p>
+    </div>
+    {% endfor %}
+</div>
+>>>>>>> 61dc9f90f4effc12af53d222866e5385a785f653
