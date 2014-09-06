@@ -3,7 +3,7 @@ markdown: redcarpet-pygments
 pygments: true
 #url: http:/vinitkumar.me/white-paper
 paginate: 8
-description: An irrevelant blob
+description: An irrelevant blob
 permalink: /:title/
 intro: A clueless, curious programmer's ramblings. 
 logo:             logo.png
