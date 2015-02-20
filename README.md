@@ -1,24 +1,24 @@
-White Paper
-============
+#Clean Blog by Start Bootstrap - Jekyll Version
 
-White Paper is a jekyll theme for tech blogs. It is clean and simple with good semantic
-structure.
+The official Jekyll version of the Clean Blog theme by [Start Bootstrap](http://startbootstrap.com/).
 
-![ image](https:/i.cloudup.com/rmZjQ83vRh-2000x2000.png)
+###[View Live Demo &rarr;](http://ironsummitmedia.github.io/startbootstrap-clean-blog-jekyll/)
 
-## Usage:
+## Before You Begin
 
-- Install Jekyll from here(http:/jekyllrb.com/)
-- Fork the project.
-- Change the fields in _config.yml
-- Change the links in header.html.s
+In the _config.yml file, the base URL is set to /startbootstrap-clean-blog-jekyll which is this themes gh-pages preview. It's recommended that you remove the base URL before working with this theme locally!
 
-Test the website live while editing the code:
+It should look like this:
+`baseurl: ""`
 
-```sh
-jekyll server --watch
-```
+## What's Included
 
-## Issues:
+A full Jekyll environment is included with this theme. If you have Jekyll installed, simply run `jekyll serve` in your command line and preview the build in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
 
-Report issues or feature request [here](https:/github.com/vinitkumar/issues).
+A Grunt environment is also included. There are a number of tasks it performs like minification of the JavaScript, compiling of the LESS files, adding banners to keep the Apache 2.0 license intact, and watching for changes. Run the grunt default task by entering `grunt` into your command line which will build the files. You can use `grunt watch` if you are working on the JavaScript or the LESS.
+
+You can run `jekyll serve --watch` and `grunt watch` at the same time to watch for changes and then build them all at once.
+
+## Support
+
+Visit Clean Blog's template overview page on Start Bootstrap at http://startbootstrap.com/template-overviews/clean-blog/ and leave a comment, email feedback@startbootstrap.com, or open an issue here on GitHub for support.

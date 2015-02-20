@@ -1,6 +1,6 @@
 ---
-layout: default
-title: About Sourya Kakarla
+layout: page
+title: About ma08
 permalink: /about/
 ---
 I am a 3rd Year Computer Science Undergrad student at [IIT Kharagpur](http://www.iitkgp.ac.in/).

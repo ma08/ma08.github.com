@@ -1,32 +1,25 @@
-name: Clueless ma08
-markdown: redcarpet-pygments
-pygments: true
-#url: http:/vinitkumar.me/white-paper
-paginate: 8
-description: An irrelevant blob
-permalink: /:title/
-intro: A clueless, curious programmer's ramblings. 
-logo:             logo.png
-disqus_shortname: sourya4
-# url: http:/gotchacode.com
-#Comment out url when working locally to resolve base urls correctly
-#url:
+# Site settings
+baseurl: ""
+url: "http://ma08.github.io"
+title: BLOB
+header-img: img/computer_problems.png
+email: thisisma08@gmail.com
+description: "A clueless, curious programmer's ramblings"
+#twitter_username: SBootstrap
 
-# Owner/author information
 author :
-  name : Sourya Kakarla
-  email : sourya4@gmail.com
-  github : ma08
-  googleplus: 100920825107639942614
-  twitter: gunner4evaa
-  stackexchange: ma08
-  # For Google Authorship https:/plus.google.com/authorship
+  name : ma08
+  github:  ma08
+  stackexchange: 3465519
+  disqus_shortname: sourya4
 
-# Analytics and webmaster tools stuff goes here
-google_analytics: UA-51744607-1
-google_verify:
-# https:/ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
+#facebook_username:  IronSummitMedia
 
-# Links to include in top navigation
-# For external links add external: true
+# Build settings
+#markdown: kramdown
+markdown: redcarpet-pygments
+highlighter: pygments
+permalink: /:title/
+#permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]

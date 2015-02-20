@@ -2,24 +2,22 @@
 layout: default
 ---
 
-<!-- Post Header -->
+<!-- Page Header -->
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="post-heading">
-                    <h1>{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta"><!--Posted--> by {% if site.author %}{{ site.author.name }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                <div class="site-heading">
+                    <!--<h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>-->
+                    <hr class="small">
+                    <!--<span class="subheading">{{ page.description }}</span>-->
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Post Content -->
+<!-- Main Content -->
 <article>
     <div class="container">
         <div class="row">
@@ -29,7 +27,7 @@ layout: default
 
                 <hr>
 
-                <ul class="pager">
+                <!--<ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
                         <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
@@ -41,11 +39,7 @@ layout: default
                     </li>
                     {% endif %}
                 </ul>
-{% if site.author.disqus_shortname %}
-{% include disqus_comments.html %}
-{% endif %}
-
-
+-->
             </div>
         </div>
     </div>
