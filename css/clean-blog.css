@@ -128,22 +128,20 @@ hr.small {
   }
 }
 .intro-header {
-  background: no-repeat center center ;
-  background-color: #B22222;
-
-  /*background-attachment: scroll;
+  background: no-repeat center center;
+  background-color: #808080;
+  /*background-attachment: scroll;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;*/
-  /*margin-bottom: 50px;*/
-  max-height: 400px
+  -o-background-size: cover;
+  margin-bottom: 50px;
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
   padding: 100px 0 50px;
-  color: black;
+  color: white;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
@@ -154,7 +152,7 @@ hr.small {
 }
 .intro-header .site-heading,
 .intro-header .page-heading {
-  text-align: right;
+  text-align: center;
 }
 .intro-header .site-heading h1,
 .intro-header .page-heading h1 {
