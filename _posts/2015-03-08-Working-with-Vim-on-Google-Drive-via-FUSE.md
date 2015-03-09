@@ -64,6 +64,11 @@ Now fire up a file in Vim to edit/create and use the good ole :w to save it.
 It might take some time (default is 60 seconds) to the changes to be 
 reflected in the Drive.
 
+To unmount,
+{% highlight bash %}
+$ fusermount -u mountdir
+{% endhighlight %}
+
 I know that you can't edit Word Processor files like `.doc` and `.docx` in Vim.
 Bummer. I am willing to concede that for now and keep using `.txt` and `.md` when I need
 to write something long and need it to be shared/collaborated.
