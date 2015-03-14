@@ -18,6 +18,7 @@ author :
 # Build settings
 #markdown: kramdown
 markdown: redcarpet
+pygments: true
 highlighter: pygments
 permalink: /:title/
 google_analytics: UA-51744607-1

@@ -1,7 +1,6 @@
 ---
 layout: post
 tagline: "Supporting tagline"
-header-img: "img/computer_problems.png"
 tags : [intro, beginner, jekyll, tutorial]
 ---
 So this is my first post on my `blob`. I feel sorry for you if you are reading this as either you have delved into the depths of the interwebs or you are an acquaintance of mine who was obliged to click on the link due to my aggressive publicising the shit out of this utter crap of a blob.
