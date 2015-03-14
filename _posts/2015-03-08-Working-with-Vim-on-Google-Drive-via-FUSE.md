@@ -10,8 +10,8 @@ comfy environment of Vim. The `TEXTAREA` mode that Vimperator provides was
 sufficient for editing short texts. But without the full power of Vim,
 editing a huge Google Doc was painful and I grew restless. I tried [pterosaur](https://github.com/ardagnir/pterosaur)
 which embeds full-blown Vim in textareas. It gives you all those shortcuts
-with you have built over the time. It would have been the answer to my travails if not
-for the terrible lag. 
+which you have built over time in your `vimrc`. It would have been the answer
+to my travails if not for the terrible lag. 
 I have given up on having a powerful Vim instance in the browser (for now) and 
 proceeded to check if there was a way to access Google Docs with Vim. 
 

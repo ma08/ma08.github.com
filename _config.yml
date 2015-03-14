@@ -17,9 +17,10 @@ author :
 
 # Build settings
 #markdown: kramdown
-markdown: redcarpet-pygments
+markdown: redcarpet
 highlighter: pygments
 permalink: /:title/
+google_analytics: UA-51744607-1
 #permalink: pretty
-paginate: 5
+paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
