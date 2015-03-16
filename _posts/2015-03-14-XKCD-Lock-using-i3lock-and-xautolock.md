@@ -2,13 +2,13 @@
 layout: post
 ---
 One thing I have just observed is, whenever there are a bunch of assignments (or
-differerent academic chores) to tend to, a sensor in my brain goes off saying,
-> Man, I really should write an obscure blog post which has no useful use to anyone
+various academic chores) to tend to, a sensor in my brain goes off saying,
+> Man, I really should write an obscure blog post which has no use to anyone
 whatsoever! 
 
 So whenever you see a new post pop up here, you would know that I
 really should be doing something else. Yet here I am involved in a fuzzy self
-fulfililng prophesy.
+fulfilling prophesy.
 
 Coming to the point(or the lack of one), this one's going to be about creating a
 customized lock screen - like [the one in Ubuntu](http://i1-news.softpedia-static.com/images/news2/Ubuntu-12-04-LTS-Has-a-New-Lock-Screen-2.jpg)
@@ -22,15 +22,15 @@ uptime right now is `17:01:12 up 7 days,  2:06,  9 users,  load average: 0.23, 0
 Having stubmbled upon [i3lock](http://i3wm.org/i3lock/) when browsing `i3` related stuff,
 I decided that I should make my visits away from my desk worthwhile by firing up a lock screen with
 rewarding images. You can give a colour or a background image to `i3lock` for the
-background. `i3lock` fires up only when you specifically call it. `xautolock` is used to fire up
+background. `i3lock` fires up only when you specifically call it. `xautolock` can be used to fire up
 `i3lock` on a timeout (of inactivity) or a gesture. You need to type your
 password to unlock the `i3lock` screen.
 
 One of the few things that the whole word has a consensus on is that [xkcd](http://i3wm.org/i3lock/)
 is awesome. You simply can't get enough of it. Using xkcd comics as the images
-for the lock is the obvious choice. I went to the DC++ hub in the campus, and
-searched if someone had a collection. Surprisingly, no one did. Putting my
-crawling skills to test, I wrote a `node.js` script to crawl all the xkcd comics
+for the lock is the obvious choice. I searched in the DC++ hub in the campus to see 
+if someone had a xkcd collection. Surprisingly, no one did. Putting my
+crawling skills to test, I wrote a `node.js` script to download all the xkcd comics
 till date. xkcd had a `JSON` format [which was perfect for crawling using node](http://xkcd.com/4/info.0.json).
 The files are saved in the `xkcd_comics` directory.
 
@@ -59,7 +59,7 @@ for (i = 1 ; i <= 1495 ; i++) {
 }
 {% endhighlight %}
 
-It worked flawlessly excpet for `http://xkcd.com/404/`. Cheeky bastards. 
+It worked flawlessly except for `http://xkcd.com/404/`. Cheeky bastards. 
 Most of the downloaded images were in `jpg` and `png` formats. There were a few
 gifs which I didn't consider for `i3lock`. They must have made a switch
 from jpg to png midway through the jig. 
@@ -87,8 +87,8 @@ for x in result:
 
 Now having got all the images in the png format, I checked how the image is
 being positioned by the `i3lock`. If given an image of resolution less than the screen size,
-it showed it in the top left corner with empy space remaining blank. To my
-dismay, it had not positioning parameters. The creators wanted the user to alter the
+it showed it in the top left corner with the remaining space kept blank. To my
+dismay, it had no positioning parameters. The creators wanted the user to alter the
 image to his needs and feed it to `i3lock` to ensure that `i3lock` wouldn't get 
 bloated with image handling overhead.
 
@@ -135,7 +135,7 @@ I could have used the choices to subsequently remove the used
 images from consideration in the future. But in around 1400 images, the 
 chance of repetitive choices is small. Maybe I will add that when I start
 seeing the same images after some time.
-To manually fire up the lock from the keyboard, define a binding in i3
+To manually fire up the screen from the keyboard, define a binding in i3
 {% highlight bash %}
 bindsym $mod+q exec ~/.i3/xkcd_i3lock.py
 {% endhighlight %}
@@ -171,9 +171,11 @@ An excerpt from the man pages of `xautolock`.
 >-bell           Specifies  the  loudness of the notification signal in the absence of the -notifier option. The default is 40 percent. This
                  option is only useful in conjunction with -notify.
 
-Using `-+00` means putting the mouse in the topright corner fires up the
-lock and putting the mouse in the top left corner prevents the lock being
-fired up even after inactivity(useful when watching movies).
+Using `-+00` int the `corners` option means putting the mouse in the
+topright corner fires up the lock and putting the mouse in the top left
+corner prevents the lock being fired up even after inactivity (useful when
+watching movies).
+
 
 Here is the ugly yet beautiful result.
 ![alt tag](http://i.imgur.com/H7Df0I5.jpg)
