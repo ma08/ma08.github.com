@@ -135,11 +135,11 @@ I could have used the choices to subsequently remove the used
 images from consideration in the future. But in around 1400 images, the 
 chance of repetitive choices is small. Maybe I will add that when I start
 seeing the same images after some time.
-To manually fire the screen from the keyboard, define a binding in i3
+To manually fire up the lock from the keyboard, define a binding in i3
 {% highlight bash %}
 bindsym $mod+q exec ~/.i3/xkcd_i3lock.py
 {% endhighlight %}
-Now calling `xautolock` to call the script on a timeout or an a gesture.
+Now calling `xautolock` to call the script on a timeout or a gesture.
 {% highlight  bash%}
 #Put this in the startup 
 xautolock -time 10 -detectsleep -locker "~/.i3/xkcd_i3lock.py" -notify 10 -notifier "notify-send 'Locking'" -corners -+00 -cornerdelay 10 -cornerredelay 10 &
