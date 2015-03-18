@@ -13,10 +13,7 @@ which embeds full-blown Vim in textareas. It gives you all those shortcuts
 which you have built over time in your `vimrc`. It would have been the answer
 to my travails if not for the terrible lag. 
 I have given up on having a powerful Vim instance in the browser (for now) and 
-proceeded to check if there was a way to access Google Docs with Vim. 
-
-I don't remember whether I have found [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse)
-on stackoverflow or on r/vim (might be both). It's basically a [FUSE file system](http://en.wikipedia.org/wiki/Filesystem_in_Userspace)
+proceeded to check if there was a way to access Google Docs with Vim.  I don't remember whether I have found [google-drive-ocamlfuse](https://github.com/astrada/google-drive-ocamlfuse) on stackoverflow or on r/vim (might be both). It's basically a [FUSE file system](http://en.wikipedia.org/wiki/Filesystem_in_Userspace)
 for Google Drive written in OCaml(first time I have heard of that).
 
 >Filesystem in Userspace (FUSE) is an operating system mechanism for Unix-like computer
