@@ -4,7 +4,12 @@ layout: post
 The title should have been something like
 >Never go full localhost when deploying.
 
-which isn't as clickbaity as the current one (I hope). Recently, we (team of 4)
+which isn't as clickbaity as the current one (I hope).
+
+The following wall of text outlines a recent FU of mine in the most
+incoherent way possible.
+
+Recently, we (team of 4)
 have participated in a hackathon by IBM which required you to use [Bluemix](https://console.ng.bluemix.net/),
 a cloud platform for deploying/managing apps and services. We used `node` and
 `mongoDB`(hey it was just a hackathon) on the
@@ -20,7 +25,7 @@ deploying locally, I didn't think much about it as the server IBM provided was
 working fine and we adhered to the golden rule of web development in KGP
 >When in doubt, blame the proxy.
 
-For people outside KGP, we have all the traffic going through a proxy server
+For people outside KGP: we have all the traffic going through a proxy server
 which is irrationally blamed for every single problem which concerns a computer.
 
 The hackathon ended and the result was quite good. Another hackathon came up,
@@ -29,6 +34,8 @@ of some cool new features. We "simply" had to
 change the interface from the webapp to Microsoft's store app. Being the backend
 guy, I was ecstatic as it meant we would be using the same server code and I
 would have to write less than 50 lines of code to implement the new features.
+
+The rest of the post outlines our struggles to get the server runnning. 
 
 
 As `mongoDB` wasn't available in the subscription `Microsoft` provided, we chose
@@ -43,8 +50,8 @@ didn't work.
 So we figured that as the proxy in KGP allows traffic to go through only the
 ports `80` and `443`, we created an endpoint from `80` to `3000`. No luck.
 We have officially exhausted our option of blaming the proxy as we were using
-the public port `80` as we couldn't connect even when using `tor`.
-So we turned our blame lights on Microsoft. We thought
+the public port `80` and we couldn't connect even when using `tor`.
+So we turned our blame lights on `Microsoft`. We thought
 something might be wrong with their endpoint setup so went on "debugging" the
 thing for 3-4 hours. We changed the server port to `80` and defined an endpoint
 from `80` to `80` (running the server on port `80`) and tried many other variations.
@@ -69,24 +76,24 @@ choice of running it locally. But as I mentioned earlier, we couldn't even get
 to connect to the machine running locally using local IP address - even after disabling
 the proxy. So the only option left was to deploy the server and present the app
 on the same machine and it wasn't possible as we had no clue how to run/setup
-`mongoDB` and `node` on windows - so this was never really an option. So we had
+`mongoDB` and `node` on Windows - so this was never really an option. So we had
 to continue debugging this nasty "bug".
 
 We have finally decided that the logical thing to do next was
 to change the location of testing it. Hey, when you are getting bad results,
 some parameter needs to be changed and we chose to change the location as the
 lab we were in had its network configuration somewhat changed so we were a bit
-doubtful about it. We went to a different lab and started doing the samething
-with no results. So after fucking around for 6 hours, we finally thought
+doubtful about it. We went to a different lab and started doing the same thing
+with no variation in results. So after fucking around for 6 hours, `we finally thought
 something might be wrong with our code instead of blaming the proxy or Microsoft
-or the unvierse. We have independently reached the conclusion that using the
+or the unvierse`. We have independently reached the conclusion that using the
 address `localhost` might be the problem.
 
 I didn't think much about this earlier as being the layman I am, I thought any
 requests coming to the machine (on different addresses - local, global etc) would be
-received by your server. Boy, I couldn't have been more wrong. `localhost` is
+received by your server when using `localhost` as the host. Boy, I couldn't have been more wrong. `localhost` is
 meant for local testing. That's it. You can't access a computer running a server
-on `localhost` from an external machine. Hell you can't access the server from
+on `localhost` from an external machine. You can't access the server from
 the same machine using the local IP.
 > localhost is a hostname that means this computer and may be used to access the computer's own network services via its loopback network interface. Using the loopback interface bypasses local network interface hardware. The local loopback mechanism may be useful for testing software during development, independently of any networking configurations. For example, if a computer has been configured to provide a website, directing a locally running web browser to http://localhost may display its home page.
 >On most computer systems, "localhost" resolves to the IP address 127.0.0.1, which is the most commonly used IPv4 loopback address, and to the IPv6 loopback address ::1.
@@ -117,15 +124,18 @@ rather than using `0.0.0.0`. But as `Azure` provided us two IP addresses - a loc
 in the network of the VMs and a global, public IP. We just chose to use `0.0.0.0`
 without dealing with any intricacies as we already had spent a lot of time
 getting it solved. We first tested it locally and checked if we could connect to
-the server running on a different machine. We couldn't at first. And the new found hope
+the server running on a different machine. We couldn't at first. The new found hope
 we had quickly started to transform into rage. Though we were unsure of using our
 `proxy card`,
 >When in doubt, blame the proxy.
 
  we disabled the proxy and tried to connect using the local IP address.
- And it worked. Finally. The guys maintaining the proxy should direct local IP addressess
+ It worked. Finally. The guys maintaining the proxy should direct local IP addressess
 to right place and save us the hassle.  We deployed it on the VM and it worked. Clean as a whistle.
-Changing `localhost` to `0.0.0.0` was the answer. And we took more than 6 hours for that.
+Changing `localhost` to `0.0.0.0` was the answer and we took more than 6 hours for that.
+
+So I have acquired a quantum of knowledge I should have possessed years ago
+at the expense of 6 precious hackathon hours.
 
 Don't judge me. No one is immune  from bouts of stupidity.
 
