@@ -178,8 +178,8 @@ watching movies).
 
 
 Here is the ugly yet beautiful result.
-![alt tag](http://i.imgur.com/H7Df0I5.jpg)
-![alt tag](http://i.imgur.com/OHTVAxi.jpg)
+![alt tag](/xkcd_1.jpg)
+![alt tag](/xkcd_2.jpg)
 
 
 
