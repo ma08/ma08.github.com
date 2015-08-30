@@ -42,7 +42,7 @@ about life in the conventional way is the most natural thing to do. They don't s
 to realise the bizareness of the universe and it's relationship with humans.
 
 We are constantly in the unknown regarding the meaning of life and the
-universe(no, it ain't 42).
+universe (no, it ain't 42).
 But everyone seems to be fine with it. If you take a step back and look at stuff
 like politics, religion, movies, literature, humour, grades (:p) when you see
 the abstractness of all these things - you will never be the same again. I feel we
