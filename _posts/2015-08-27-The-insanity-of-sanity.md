@@ -24,7 +24,7 @@ entity called "God". Many of the statements I am making are very cliched but
 these have been bugging me for a long time and I simply cannot stop myself at
 ranting it out.
 
-The sentientness of humans is bothering me a great deal. It's hard to believe
+The sentience of humans is bothering me a great deal. It's hard to believe
 that we are just a chemical accident in the grand scheme of things. 
 > Self awareness is not just a bunch of amino acids bumping together. 
 <br>
