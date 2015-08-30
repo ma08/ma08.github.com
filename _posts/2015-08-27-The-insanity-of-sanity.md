@@ -37,7 +37,7 @@ convenient to think that we're just a chemical phenomenon.
 What's happening around is very unnatural when you come to think of it. We are
 manipulating the entire planet for our needs. We have great power put in our
 hands. But people (sorry for judging) go on about their lives as if going on
-about life in the convential way is the most natural thing to do. They don't stop
+about life in the conventional way is the most natural thing to do. They don't stop
 to realise the bizareness of the universe and it's relationship with humans.
 
 We are constantly in the unknown regarding the meaning of life and the
