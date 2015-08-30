@@ -5,9 +5,10 @@ As usual my hypothesis that I write stuff like this at times when I definitely
 should be doing something else( like meeting deadlines) has become true. 
 I got so much to do but I gotta "write" too.
 
-Before you go on, I am going to warn you that this post is going to be [another
-one of those "existensial discussions" out there](https://xkcd.com/220/). Though as much as I am trying
-to put in a unique touch to it, I acknowledge the futility of that exercise.
+Before you go on, I am going to warn you that this post is going to be another
+one of those "existensial discussions" out there.
+![xkcd](http://imgs.xkcd.com/comics/philosophy.png)
+Though as much as I am trying to put in a unique touch to it, I acknowledge the futility of that exercise.
 If you have had enough of it, better go somewhere else to pass time.
 
 When you look around the world, it's easy to see that every thing looks to be
