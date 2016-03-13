@@ -14,11 +14,9 @@ top right corner such that I can work on something while viewing stuff to
 minimize (or maximize I ain't sure) my efficiency. I use [i3](https://i3wm.org/) as my window manager [which I talked about earlier here](http://ma08.github.io/Tiling-Window-Managers/).
 Skip the i3 specific parts if you have no idea about it.
 I've defined a binding to float a window, set it to a specific size and place it in the top right corner.
-Also to make it stay there when moving across workspaces
+Also making it a sticky window to make it stay there when moving across workspaces
 {% highlight bash %}
-bindsym $mod+Shift+m floating enable; resize shrink width 10000px; resize grow width 280px; resize shrink height 10000px; resize grow height 150px; move absolute position 1010 px 0 px
-bindsym $mod+i [class="mplayer2"] move workspace prev;   workspace prev;focus  mode_toggle 
-bindsym $mod+o  [class="mplayer2"] move workspace next; workspace next;focus mode_toggle
+bindsym $mod+Shift+m floating enable; resize set 320 px 180 px; sticky enable; move window to position 1045 px 0 px
 {% endhighlight %}
 
 
