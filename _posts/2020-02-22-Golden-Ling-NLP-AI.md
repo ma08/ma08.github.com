@@ -1,7 +1,6 @@
 ----
 layout: post
 ---
-->
 the need for privacy
 sir prizes
 #### golden lingo
@@ -51,4 +50,3 @@ Camaraderie.
 Rusts the first.
 Landslide earthquake perpetual motion
 theory of a very fling
-->
