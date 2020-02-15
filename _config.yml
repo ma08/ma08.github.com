@@ -17,11 +17,12 @@ author :
 
 # Build settings
 #markdown: kramdown
-markdown: redcarpet
-pygments: true
-highlighter: pygments
+#markdown: redcarpet
+#pygments: true
+highlighter: rogue
 permalink: /:title/
 google_analytics: UA-51744607-1
 #permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+gems: [jekyll-paginate]
