@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A clueless, curious programmer's ramblings">
+
+    <title>Never Go Full Localhost - BLOB</title>
+
+    <link rel="canonical" href="http://ma08.github.io/Never-go-full-localhost/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BLOB</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about/">About ma08</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/shebang.jpg')">
+
+
+    <script type="text/javascript" src="/js/mathjax.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Never Go Full Localhost</h1>
+                    
+                    <span class="meta"><!--Posted--> by ma08 on March 25, 2015</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>The title should have been something like</p>
+
+<blockquote>
+<p>Never go full localhost when deploying.</p>
+</blockquote>
+
+<p>which isn&#39;t as clickbaity as the current one (I hope).</p>
+
+<p>The following wall of text outlines a recent FU of mine in the most
+incoherent way possible.</p>
+
+<p>Recently, we (team of 4)
+have participated in a hackathon by IBM which required you to use <a href="https://console.ng.bluemix.net/">Bluemix</a>,
+a cloud platform for deploying/managing apps and services. We used <code>node</code> and
+<code>mongoDB</code>(hey it was just a hackathon) on the
+server side. To do that, <code>Bluemix</code> gives you environment variables for deploying
+the server. A snippet of the code they provided for using node on bluemix</p>
+
+<blockquote>
+<p>var host = (process.env.VCAP<em>APP</em>HOST || &#39;localhost&#39;);</p>
+</blockquote>
+
+<p>which means the host address will be obtained from the environment variable IBM
+provides or will be <code>localhost</code>  when testing locally. Everything went
+swimmingly and though we couldn&#39;t connect to each other&#39;s machines (using local
+IP addresses) when
+deploying locally, I didn&#39;t think much about it as the server IBM provided was
+working fine and we adhered to the golden rule of web development in KGP</p>
+
+<blockquote>
+<p>When in doubt, blame the proxy.</p>
+</blockquote>
+
+<p>For people outside KGP: we have all the traffic going through a proxy server
+which is irrationally blamed for every single problem which concerns a computer.</p>
+
+<p>The hackathon ended and the result was quite good. Another hackathon came up,
+this time by <code>Microsoft</code> and we have decided to go with the same idea, albeit with the addition
+of some cool new features. We &quot;simply&quot; had to
+change the interface from the webapp to Microsoft&#39;s store app. Being the backend
+guy, I was ecstatic as it meant we would be using the same server code and I
+would have to write less than 50 lines of code to implement the new features.</p>
+
+<p>The rest of the post outlines our struggles to get the server runnning. </p>
+
+<p>As <code>mongoDB</code> wasn&#39;t available in the subscription <code>Microsoft</code> provided, we chose
+<code>Ubuntu on Azure&#39;s VM</code> for deploying the server. Once we setup the VM, we started installing the
+required software to start the server. Everything installed blazing fast and it
+was time for action. We have used the port <code>3000</code> for the server and we couldn&#39;t
+connect to it. After a bit of googling and discussing with Microsoft&#39;s
+mentors on site, we got to know that we had to add an <a href="azure.microsoft.com/en-in/.../articles/virtual-machines-set-up-endpoints/">endpoint</a> to direct the traffic to <code>3000</code> port internally. We defined a mapping <code>3000</code> to <code>3000</code> and it
+didn&#39;t work.</p>
+
+<blockquote>
+<p>When in doubt, blame the proxy.</p>
+</blockquote>
+
+<p>So we figured that as the proxy in KGP allows traffic to go through only the
+ports <code>80</code> and <code>443</code>, we created an endpoint from <code>80</code> to <code>3000</code>. No luck.
+We have officially exhausted our option of blaming the proxy as we were using
+the public port <code>80</code> and we couldn&#39;t connect even when using <code>tor</code>.
+So we turned our blame lights on <code>Microsoft</code>. We thought
+something might be wrong with their endpoint setup so went on &quot;debugging&quot; the
+thing for 3-4 hours. We changed the server port to <code>80</code> and defined an endpoint
+from <code>80</code> to <code>80</code> (running the server on port <code>80</code>) and tried many other variations.
+No luck. We have spent around 5 hours on this issue meanwhile the guys developing the frontend were trying to figure out
+how to develop the interface for a Windows&#39; Store app and needed our help. In this duration of 5
+hours we even went to the extent of creating another VM on Azure and tried to
+ping one machine from the other - we were running out of things to do.</p>
+
+<p>Another aspect of this bug was when running locally connecting to <code>localhost</code>
+worked but not the local IP address of the machine. We decided the local
+IP part was due to the proxy (which was partly true). I will touch on that
+later.</p>
+
+<p>The guys working on the frontend were getting pissed off with our antics. I mean
+how hard it can get to deploy a server. They wanted to discuss the interface of
+the app while we were busy changing ports and messing around with VMs. We consulted the
+mentors and they had suggested the endpoint thing and another thing called <a href="http://azure.microsoft.com/en-in/documentation/articles/virtual-machines-set-up-endpoints/#manage-the-acl-on-an-endpoint">ACL</a>,
+which I don&#39;t even have the energy to write about. The mentors didn&#39;t have many
+ideas as were running a linux VM.
+At this point, we were like <code>fuck it, we will go all local</code> and considered the
+choice of running it locally. But as I mentioned earlier, we couldn&#39;t even get
+to connect to the machine running locally using local IP address - even after disabling
+the proxy. So the only option left was to deploy the server and present the app
+on the same machine and it wasn&#39;t possible as we had no clue how to run/setup
+<code>mongoDB</code> and <code>node</code> on Windows - so this was never really an option. So we had
+to continue debugging this nasty &quot;bug&quot;.</p>
+
+<p>We have finally decided that the logical thing to do next was
+to change the location of testing it. Hey, when you are getting bad results,
+some parameter needs to be changed and we chose to change the location as the
+lab we were in had its network configuration somewhat changed so we were a bit
+doubtful about it. We went to a different lab and started doing the same thing
+with no variation in results. So after fucking around for 6 hours, <code>we finally thought
+something might be wrong with our code instead of blaming the proxy or Microsoft
+or the unvierse</code>. We have independently reached the conclusion that using the
+address <code>localhost</code> might be the problem.</p>
+
+<p>I didn&#39;t think much about this earlier as being the layman I am, I thought any
+requests coming to the machine (on different addresses - local, global etc) would be
+received by your server when using <code>localhost</code> as the host. Boy, I couldn&#39;t have been more wrong. <code>localhost</code> is
+meant for local testing. That&#39;s it. You can&#39;t access a computer running a server
+on <code>localhost</code> from an external machine. You can&#39;t access the server from
+the same machine using the local IP.</p>
+
+<blockquote>
+<p>localhost is a hostname that means this computer and may be used to access the computer&#39;s own network services via its loopback network interface. Using the loopback interface bypasses local network interface hardware. The local loopback mechanism may be useful for testing software during development, independently of any networking configurations. For example, if a computer has been configured to provide a website, directing a locally running web browser to http://localhost may display its home page.
+On most computer systems, &quot;localhost&quot; resolves to the IP address 127.0.0.1, which is the most commonly used IPv4 loopback address, and to the IPv6 loopback address ::1.</p>
+</blockquote>
+
+<p>This means that whenever you use <code>localhost</code> or <code>127.0.0.1</code> to run a server, you
+can&#39;t access the server from other machines.</p>
+
+<p>We finally found on <code>stackexchange</code> that the answer to all our problems was
+using <code>0.0.0.0</code></p>
+
+<blockquote>
+<p>In the Internet Protocol version 4 the address 0.0.0.0 is a non-routable meta-address used to designate an invalid, unknown or non applicable target. To give a special meaning to an otherwise invalid piece of data is an application of in-band signaling.
+Uses include:</p>
+
+<ul>
+<li><p>The address a host claims as its own when it has not yet been assigned an address. Such as when sending the initial DHCPDISCOVER
+packet when using DHCP.</p></li>
+<li><p>The address a host assigns to itself when address request via DHCP has failed, provided the host&#39;s IP stack supports this. This usage has been replaced with the APIPA mechanism in modern operating systems.</p></li>
+<li><p>A way to specify &quot;any IPv4-host at all&quot;. It is used in this way when specifying a default route.</p></li>
+<li><p>A way to explicitly specify that the target is unavailable.[1]</p></li>
+<li><p>A way to specify &quot;any IPv4 address at all&quot;. It is used in this way when configuring servers (i.e. when binding listening sockets).   This is known to TCP programmers as INADDR_ANY. (bind(2) binds to addresses, not interfaces.)</p></li>
+</ul>
+</blockquote>
+
+<p>This means when you run a server using <code>0.0.0.0</code> as the host address it
+listens (most of the times) on all the addresses on the machine - <code>localhost</code>, <code>local IP</code>, <code>global IP</code>. If
+you are deploying a server, it is better to use the <code>global IP</code> of the machine
+rather than using <code>0.0.0.0</code>. But as <code>Azure</code> provided us two IP addresses - a local IP - 
+in the network of the VMs and a global, public IP. We just chose to use <code>0.0.0.0</code>
+without dealing with any intricacies as we already had spent a lot of time
+getting it solved. We first tested it locally and checked if we could connect to
+the server running on a different machine. We couldn&#39;t at first. The new found hope
+we had quickly started to transform into rage. Though we were unsure of using our
+<code>proxy card</code>,</p>
+
+<blockquote>
+<p>When in doubt, blame the proxy.</p>
+</blockquote>
+
+<p>we disabled the proxy and tried to connect using the local IP address.
+ It worked. Finally. The guys maintaining the proxy should direct local IP addressess
+to right place and save us the hassle.  We deployed it on the VM and it worked. Clean as a whistle.
+Changing <code>localhost</code> to <code>0.0.0.0</code> was the answer and we took more than 6 hours for that.</p>
+
+<p>So I have acquired a quantum of knowledge I should have possessed years ago
+at the expense of 6 precious hackathon hours.</p>
+
+<p>Don&#39;t judge me. No one is immune  from bouts of stupidity.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/XKCD-Lock-using-i3lock-and-xautolock/" data-toggle="tooltip" data-placement="top" title="Xkcd Lock Using I3lock And Xautolock">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/The-insanity-of-sanity/" data-toggle="tooltip" data-placement="top" title="The Insanity Of Sanity">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'sourya4'; // required: replace example with your forum shortname
+  var disqus_identifier = '_posts/2015-03-25-Never-go-full-localhost.md';
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http:/disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http:/disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/ma08">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://stackoverflow.com/users/3465519">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; BLOB 2021</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-51744607-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>

@@ -1,30 +1,1346 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml" />
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% for post in site.posts limit:10 %}
+    <title>BLOB</title>
+    <description>A clueless, curious programmer's ramblings</description>
+    <link>http://ma08.github.io/</link>
+    <atom:link href="http://ma08.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sat, 17 Jul 2021 15:05:15 +0530</pubDate>
+    <lastBuildDate>Sat, 17 Jul 2021 15:05:15 +0530</lastBuildDate>
+    <generator>Jekyll v3.8.6</generator>
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-        {% for tag in post.tags %}
-        <category>{{ tag | xml_escape }}</category>
-        {% endfor %}
-        {% for cat in post.categories %}
-        <category>{{ cat | xml_escape }}</category>
-        {% endfor %}
+        <title>Youplay</title>
+        <description>&lt;p&gt;Oh boy, ma08 is back with some &lt;a href=&quot;https://github.com/ma08/youplay&quot;&gt;new stuff&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A lot has happened since I last blabbered (read blobbered) on about something obscure I
+have done to feel good about myself and maybe sometimes to contribute something
+useful to humanity. This time, hopefully the contribution is something more than
+creating content in the backwaters of the interwebs. Ideally I would have liked
+to work on it more before documenting and publishing but the situation demands
+it so bear with imperfections. The journey towards the perfection should be
+enjoyed, irrespective of achievment of perfection.&lt;/p&gt;
+
+&lt;p&gt;Any self respecting programmer will try to tinker around and automate stuff to
+his liking. My OCD to do everything using the keyboard and the
+need to stay away form using the sloggy browser (to do this day I can&amp;#39;t figure
+out how even with all the computational power we have, haven&amp;#39;t come to
+resource efficient browser-webpage system. Maybe webassembly might shake
+up things for the good) lead to &lt;a href=&quot;http://ma08.github.io/Youtube-Floater/&quot;&gt;my previous post&lt;/a&gt; - play youtube natively in a
+video player without ever opening the browser. Currently, it plays the first
+video in the results of the search time you give. I have actually followed
+through about creating a interface in terminal to navigate the results to select
+the required video. Here I give a pitch about youplay: &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ma08/youplay&quot;&gt;YouPlay&lt;/a&gt;, so that you can play youtube videos seamlessly from the comfort of terminal,
+thus making the world a better place(slicon valley video).&lt;/p&gt;
+
+&lt;p&gt;For brevity, it is to search youtube from the terminal or your command launcher
+(rofi), scroll through the results &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Starting off with the bad news, what it doesn&amp;#39;t have:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Option to download video&lt;/li&gt;
+&lt;li&gt;Search history&lt;/li&gt;
+&lt;li&gt;Full details of the video like channel name, &lt;/li&gt;
+&lt;li&gt;Sort search history&lt;/li&gt;
+&lt;li&gt;Option to see beyond the first 25 results&lt;/li&gt;
+&lt;li&gt;Search autocompletion&lt;/li&gt;
+&lt;li&gt;Documentation&lt;/li&gt;
+&lt;li&gt;Manual Page&lt;/li&gt;
+&lt;li&gt;Full Support for multiple terminals (Currently all features work only for urxvt)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What it has:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Vim-like bindings (search, navigating). (Mic drop)&lt;/li&gt;
+&lt;li&gt;Ability to select video quality and if required stream only audio.&lt;/li&gt;
+&lt;li&gt;Thumbnails of videos if using urxvt.&lt;/li&gt;
+&lt;li&gt;Ability to have a small sticky window playing the video anywhere on the screen&lt;/li&gt;
+&lt;li&gt;so that you can do something like I am writing this blog while watching videos(image)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is just part of my journey to vimify everything that comes to me.
+I was too high when coding some parts of this so can&amp;#39;t remember where&amp;#39;s what.
+I am too scared to open the source code now to collaborate. So just presenting how it works and
+also releasing the source code just in case some weird/wired nerd like me can get
+some inspiration and do crazy stuff.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Keybindings:
+
+&lt;ul&gt;
+&lt;li&gt;/ to go to search bar&lt;/li&gt;
+&lt;li&gt;CTRL-[ to escape from the search bar &lt;/li&gt;
+&lt;li&gt;&amp;quot;Enter&amp;quot; to enter the search&lt;/li&gt;
+&lt;li&gt;j,k to navigate through the search results&lt;/li&gt;
+&lt;li&gt;i to open the window of video formats&lt;/li&gt;
+&lt;li&gt;q to escape from the window&lt;/li&gt;
+&lt;li&gt;I myself don&amp;#39;t know the rest of the bindings as of now. Just watch and
+see.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is the power of linux, i3, vim, urxvt, youplay, and something else. Please click
+on the next image to witness the magic.
+&lt;a href=&quot;http://www.youtube.com/watch?v=Q8CjOvWGNgw&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/Q8CjOvWGNgw/0.jpg&quot; alt=&quot;Youplay&quot;&gt;&lt;/a&gt;
+I don&amp;#39;t expect anyone to get it working for themselves. Will write a better
+README.md when I find some time.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 26 Apr 2017 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/YouPlay/</link>
+        <guid isPermaLink="true">http://ma08.github.io/YouPlay/</guid>
+        
+        
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Youtube Floater</title>
+        <description>&lt;p&gt;I am back to subject you with some more obscure stuff. As obscure as it can get.
+This is more of documentation than communicating my thoughts with the rest of
+the world. With the self deprecation out of the way, let&amp;#39;s get to the point.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;#39;t feel like reading the wall of text that follows, watch the video at the
+end for a TLDR.&lt;/p&gt;
+
+&lt;p&gt;For a while I have been using mplayer2 as my default
+player due to it&amp;#39;s minimal interface. I got this brilliant idea of having a floating video window at the
+top right corner such that I can work on something while viewing stuff to
+minimize (or maximize I ain&amp;#39;t sure) my efficiency. I use &lt;a href=&quot;https://i3wm.org/&quot;&gt;i3&lt;/a&gt; as my window manager &lt;a href=&quot;http://ma08.github.io/Tiling-Window-Managers/&quot;&gt;which I talked about earlier here&lt;/a&gt;.
+Skip the i3 specific parts if you have no idea about it.
+I&amp;#39;ve defined a binding to float a window, set it to a specific size and place it in the top right corner.
+Also making it a sticky window to make it stay there when moving across workspaces&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bindsym $mod+Shift+m floating enable; resize set 320 px 180 px; sticky enable; move window to position 1045 px 0 px&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This is how it works.
+&lt;img src=&quot;/img/mplayer-floater.png&quot; alt=&quot;Image alt&quot; title=&quot;image title&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;After getting used to this, I wanted something like this for youtube videos. 
+Some way to extract out the player of youtube and manipulate it in such a way
+that I can &amp;quot;work&amp;quot; away with a floating youtube player. I observed that whenever
+youtube was in full screen it is placed in an X-window named &amp;quot;plugin-container&amp;quot;
+or something. I tried using it to achieve the effect I was after but didn&amp;#39;t have
+much success with it. I gave up on this quest for a while.&lt;/p&gt;
+
+&lt;p&gt;Later while I found  &lt;a href=&quot;https://www.reddit.com/r/unixporn/comments/49yjjg/oc_maybe_the_closest_thing_to_actual_unix_porn/d0vvp42&quot;&gt;this&lt;/a&gt;,
+I went off on a tangent (trying to play videos in the form of ascii art) where I stumbled upon a solution to the youtube floater thingy I
+wanted. I learned that you could play youtube videos with mplayer using &lt;a href=&quot;https://rg3.github.io/youtube-dl/&quot;&gt;youtube-dl&lt;/a&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;youtube-dl -q -o- $url | mplayer -cache 8192  -&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Once it starts playing I can make it a floater using my binding I talked about
+earlier. This essentially solved my quest for the youtube floater. To use this, it requires having the url
+of the youtube video which requires searching for something and getting the
+video url. I wanted something more snippy. I combined the youtube floater with a
+youtube &amp;quot;I am feeling lucky&amp;quot; thing. It essentially searches for something using
+the search term and plays the first result of the search in mplayer. &lt;/p&gt;
+
+&lt;p&gt;It uses &lt;a href=&quot;https://developers.google.com/youtube/v3/&quot;&gt;Youtube Data API&lt;/a&gt; by Google. Get an API Key to run it yourself.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;#!/usr/bin/python
+
+#install https://developers.google.com/api-client-library/python/ , youtube-dl and mplayer
+
+from apiclient.discovery import build
+from apiclient.errors import HttpError
+from oauth2client.tools import argparser
+import os
+# Set DEVELOPER_KEY to the API key value from the APIs &amp;amp; auth &amp;gt; Registered apps
+# tab of
+#   https://cloud.google.com/console
+# Please ensure that you have enabled the YouTube Data API for your project.
+DEVELOPER_KEY = &amp;quot;API KEY&amp;quot;
+YOUTUBE_API_SERVICE_NAME = &amp;quot;youtube&amp;quot;
+YOUTUBE_API_VERSION = &amp;quot;v3&amp;quot;
+def youtube_search(options):
+  youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
+    developerKey=DEVELOPER_KEY)
+  # Call the search.list method to retrieve results matching the specified
+  # query term.
+  search_response = youtube.search().list(
+    q=options.q,
+    type=&amp;quot;video&amp;quot;,
+    safeSearch=&amp;quot;none&amp;quot;,
+    #location=options.location,
+    #locationRadius=options.location_radius,
+    part=&amp;quot;id,snippet&amp;quot;,
+    maxResults=options.max_results
+  ).execute()
+  urls=[]
+  for search_result in search_response.get(&amp;quot;items&amp;quot;, []):
+    urls.append(&amp;quot;https://youtube.com/v/&amp;quot;+search_result[&amp;quot;id&amp;quot;][&amp;quot;videoId&amp;quot;])
+  os.system(&amp;quot;youtube-dl -q -o- %s | mplayer -cache 4096  - &amp;amp;&amp;quot;%(urls[0]))
+if __name__ == &amp;quot;__main__&amp;quot;:
+  argparser.add_argument(&amp;quot;--q&amp;quot;, help=&amp;quot;Search term&amp;quot;, default=&amp;quot;Google&amp;quot;)
+  #argparser.add_argument(&amp;quot;--location&amp;quot;, help=&amp;quot;Location&amp;quot;, default=&amp;quot;37.42307,-122.08427&amp;quot;)
+  #argparser.add_argument(&amp;quot;--location-radius&amp;quot;, help=&amp;quot;Location radius&amp;quot;, default=&amp;quot;5km&amp;quot;)
+  argparser.add_argument(&amp;quot;--max-results&amp;quot;, help=&amp;quot;Max results&amp;quot;, default=25)
+  args = argparser.parse_args()
+  try:
+    youtube_search(args)
+  except HttpError, e:
+    print &amp;quot;An HTTP error %d occurred:\n%s&amp;quot; % (e.resp.status, e.content)&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I wrote a bash script &amp;quot;youtube-play.sh&amp;quot; to call the python script.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;/path/to/youtube-play.py --q &amp;quot;$1&amp;quot; &amp;gt; /dev/null 2&amp;gt; /dev/null
+#I know this is redundant. I could&amp;#39;ve just used the python script as the only executable.&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;adding the folder of this script to the PATH variable in bashrc,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;export PATH=$PATH:~/pro/executable_scripts&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;To run it&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ youtube-play.sh &amp;quot;foo bar&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I can run the whole jig from my &lt;a href=&quot;https://davedavenport.github.io/rofi/&quot;&gt;rofi&lt;/a&gt; launcher.&lt;/p&gt;
+
+&lt;p&gt;TLDR: Playing youtube videos in a video player and some other stuff.
+&lt;iframe src=&quot;https://player.vimeo.com/video/158763290&quot; width=&quot;500&quot; height=&quot;281&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+
+&lt;p&gt;Lots of stuff could&amp;#39;ve have been done differently. I could have stored the
+videos on disk such that multiple requests for the same video don&amp;#39;t end up
+taking unnecessary bandwidth. I could have created an interface using &lt;a href=&quot;https://www.gnu.org/software/ncurses/&quot;&gt;ncurses&lt;/a&gt; to
+navigate the results and select the required video (without using mouse - that&amp;#39;s the point
+of everything I do) instead of using the first result. &lt;/p&gt;
+
+&lt;p&gt;Maybe some other time if I find the motivation and the time aka never. &lt;/p&gt;
+
+&lt;p&gt;Fin.&lt;/p&gt;
+
+&lt;p&gt;P.S. If you are from KGP, don&amp;#39;t use youtube if you can find the video on DC.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 13 Mar 2016 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Youtube-Floater/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Youtube-Floater/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>The Insanity Of Sanity</title>
+        <description>&lt;p&gt;As usual my hypothesis that I write stuff like this at times when I definitely
+should be doing something else( like meeting deadlines) has become true. 
+I got so much to do but I gotta &amp;quot;write&amp;quot; too.&lt;/p&gt;
+
+&lt;p&gt;Before you go on, I am going to warn you that this post is going to be another
+one of those &amp;quot;existensial discussions&amp;quot; out there.
+&lt;img src=&quot;http://imgs.xkcd.com/comics/philosophy.png&quot; alt=&quot;xkcd&quot;&gt;
+Though as much as I am trying to put in a unique touch to it, I acknowledge the futility of that exercise.
+If you have had enough of it, better go somewhere else to pass time.&lt;/p&gt;
+
+&lt;p&gt;When you look around the world, it&amp;#39;s easy to see that every thing looks to be
+setup for humans to use (read exploit). It&amp;#39;s because of the self centered nature
+of our (any) brains and also because how advanced humans are as a race.&lt;/p&gt;
+
+&lt;p&gt;As we live in the modern, artifical world, doesn&amp;#39;t one stop to think how this
+setup has come to be. Yeah we had progress over thousands of years. But it&amp;#39;s hard
+to deny that it always looked like humans would be the prime race of the planet
+since the &lt;a href=&quot;https://en.wikipedia.org/wiki/Evolution_of_human_intelligence&quot;&gt;early days of their intelligence&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Are we simply the result of evolution or is this an elaborate scheme by the
+entity called &amp;quot;God&amp;quot;. Many of the statements I am making are very cliched but
+these have been bugging me for a long time and I simply cannot stop myself at
+ranting it out.&lt;/p&gt;
+
+&lt;p&gt;The sentience of humans is bothering me a great deal. It&amp;#39;s hard to believe
+that we are just a chemical accident in the grand scheme of things. &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Self awareness is not just a bunch of amino acids bumping together. 
+&lt;br&gt;
+ - Jubal in  &amp;#39;Stranger in a Strange Land&amp;#39;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It might just be a bunch of amino acids bumping together, but it feels awfully
+convenient to think that we&amp;#39;re just a chemical phenomenon.&lt;/p&gt;
+
+&lt;p&gt;What&amp;#39;s happening around is very unnatural when you come to think of it. We are
+manipulating the entire planet for our needs. We have great power put in our
+hands. But people (sorry for judging) go on about their lives as if going on
+about life in the conventional way is the most natural thing to do. They don&amp;#39;t stop
+to realise the bizareness of the universe and it&amp;#39;s relationship with humans.&lt;/p&gt;
+
+&lt;p&gt;We are constantly in the unknown regarding the meaning of life and the
+universe (no, it ain&amp;#39;t 42).
+But everyone seems to be fine with it. If you take a step back and look at stuff
+like politics, religion, movies, literature, humour, grades (:p) when you see
+the abstractness of all these things - you will never be the same again. I feel we
+have hugely complicated our lives with just to evade from the unknownness and be &amp;quot;sane&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;Being &amp;quot;sane&amp;quot; is just an equilibrium state and a way of coping with the ultimate
+question. We conveniently go on with our lives as if the uknowness doesn&amp;#39;t matter
+much. Yeah, it might be pointless to think too much about it as we all know that
+we don&amp;#39;t have the answer and I doubt if we will ever get one.&lt;/p&gt;
+
+&lt;p&gt;That&amp;#39;s why I have a new found respect for people working in the science field -
+especially physics and biology. They are trying to &amp;quot;grok&amp;quot; the universe and us.
+Only with advances in these fields we can ever hope to reach the ultimate
+answer.&lt;/p&gt;
+
+&lt;p&gt;So as you go on with your jolly life, question yourself if you really are sane
+if you are not bothered with being in the unknown about probably the most
+important thing in our lives - the meaning/reason of it. The more I think about
+it, I find that going insane about this is the sanest thing to do. No, I am not
+there yet. Thanks for asking. &lt;/p&gt;
+</description>
+        <pubDate>Thu, 27 Aug 2015 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/The-insanity-of-sanity/</link>
+        <guid isPermaLink="true">http://ma08.github.io/The-insanity-of-sanity/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Never Go Full Localhost</title>
+        <description>&lt;p&gt;The title should have been something like&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Never go full localhost when deploying.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;which isn&amp;#39;t as clickbaity as the current one (I hope).&lt;/p&gt;
+
+&lt;p&gt;The following wall of text outlines a recent FU of mine in the most
+incoherent way possible.&lt;/p&gt;
+
+&lt;p&gt;Recently, we (team of 4)
+have participated in a hackathon by IBM which required you to use &lt;a href=&quot;https://console.ng.bluemix.net/&quot;&gt;Bluemix&lt;/a&gt;,
+a cloud platform for deploying/managing apps and services. We used &lt;code&gt;node&lt;/code&gt; and
+&lt;code&gt;mongoDB&lt;/code&gt;(hey it was just a hackathon) on the
+server side. To do that, &lt;code&gt;Bluemix&lt;/code&gt; gives you environment variables for deploying
+the server. A snippet of the code they provided for using node on bluemix&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;var host = (process.env.VCAP&lt;em&gt;APP&lt;/em&gt;HOST || &amp;#39;localhost&amp;#39;);&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;which means the host address will be obtained from the environment variable IBM
+provides or will be &lt;code&gt;localhost&lt;/code&gt;  when testing locally. Everything went
+swimmingly and though we couldn&amp;#39;t connect to each other&amp;#39;s machines (using local
+IP addresses) when
+deploying locally, I didn&amp;#39;t think much about it as the server IBM provided was
+working fine and we adhered to the golden rule of web development in KGP&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When in doubt, blame the proxy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For people outside KGP: we have all the traffic going through a proxy server
+which is irrationally blamed for every single problem which concerns a computer.&lt;/p&gt;
+
+&lt;p&gt;The hackathon ended and the result was quite good. Another hackathon came up,
+this time by &lt;code&gt;Microsoft&lt;/code&gt; and we have decided to go with the same idea, albeit with the addition
+of some cool new features. We &amp;quot;simply&amp;quot; had to
+change the interface from the webapp to Microsoft&amp;#39;s store app. Being the backend
+guy, I was ecstatic as it meant we would be using the same server code and I
+would have to write less than 50 lines of code to implement the new features.&lt;/p&gt;
+
+&lt;p&gt;The rest of the post outlines our struggles to get the server runnning. &lt;/p&gt;
+
+&lt;p&gt;As &lt;code&gt;mongoDB&lt;/code&gt; wasn&amp;#39;t available in the subscription &lt;code&gt;Microsoft&lt;/code&gt; provided, we chose
+&lt;code&gt;Ubuntu on Azure&amp;#39;s VM&lt;/code&gt; for deploying the server. Once we setup the VM, we started installing the
+required software to start the server. Everything installed blazing fast and it
+was time for action. We have used the port &lt;code&gt;3000&lt;/code&gt; for the server and we couldn&amp;#39;t
+connect to it. After a bit of googling and discussing with Microsoft&amp;#39;s
+mentors on site, we got to know that we had to add an &lt;a href=&quot;azure.microsoft.com/en-in/.../articles/virtual-machines-set-up-endpoints/&quot;&gt;endpoint&lt;/a&gt; to direct the traffic to &lt;code&gt;3000&lt;/code&gt; port internally. We defined a mapping &lt;code&gt;3000&lt;/code&gt; to &lt;code&gt;3000&lt;/code&gt; and it
+didn&amp;#39;t work.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When in doubt, blame the proxy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So we figured that as the proxy in KGP allows traffic to go through only the
+ports &lt;code&gt;80&lt;/code&gt; and &lt;code&gt;443&lt;/code&gt;, we created an endpoint from &lt;code&gt;80&lt;/code&gt; to &lt;code&gt;3000&lt;/code&gt;. No luck.
+We have officially exhausted our option of blaming the proxy as we were using
+the public port &lt;code&gt;80&lt;/code&gt; and we couldn&amp;#39;t connect even when using &lt;code&gt;tor&lt;/code&gt;.
+So we turned our blame lights on &lt;code&gt;Microsoft&lt;/code&gt;. We thought
+something might be wrong with their endpoint setup so went on &amp;quot;debugging&amp;quot; the
+thing for 3-4 hours. We changed the server port to &lt;code&gt;80&lt;/code&gt; and defined an endpoint
+from &lt;code&gt;80&lt;/code&gt; to &lt;code&gt;80&lt;/code&gt; (running the server on port &lt;code&gt;80&lt;/code&gt;) and tried many other variations.
+No luck. We have spent around 5 hours on this issue meanwhile the guys developing the frontend were trying to figure out
+how to develop the interface for a Windows&amp;#39; Store app and needed our help. In this duration of 5
+hours we even went to the extent of creating another VM on Azure and tried to
+ping one machine from the other - we were running out of things to do.&lt;/p&gt;
+
+&lt;p&gt;Another aspect of this bug was when running locally connecting to &lt;code&gt;localhost&lt;/code&gt;
+worked but not the local IP address of the machine. We decided the local
+IP part was due to the proxy (which was partly true). I will touch on that
+later.&lt;/p&gt;
+
+&lt;p&gt;The guys working on the frontend were getting pissed off with our antics. I mean
+how hard it can get to deploy a server. They wanted to discuss the interface of
+the app while we were busy changing ports and messing around with VMs. We consulted the
+mentors and they had suggested the endpoint thing and another thing called &lt;a href=&quot;http://azure.microsoft.com/en-in/documentation/articles/virtual-machines-set-up-endpoints/#manage-the-acl-on-an-endpoint&quot;&gt;ACL&lt;/a&gt;,
+which I don&amp;#39;t even have the energy to write about. The mentors didn&amp;#39;t have many
+ideas as were running a linux VM.
+At this point, we were like &lt;code&gt;fuck it, we will go all local&lt;/code&gt; and considered the
+choice of running it locally. But as I mentioned earlier, we couldn&amp;#39;t even get
+to connect to the machine running locally using local IP address - even after disabling
+the proxy. So the only option left was to deploy the server and present the app
+on the same machine and it wasn&amp;#39;t possible as we had no clue how to run/setup
+&lt;code&gt;mongoDB&lt;/code&gt; and &lt;code&gt;node&lt;/code&gt; on Windows - so this was never really an option. So we had
+to continue debugging this nasty &amp;quot;bug&amp;quot;.&lt;/p&gt;
+
+&lt;p&gt;We have finally decided that the logical thing to do next was
+to change the location of testing it. Hey, when you are getting bad results,
+some parameter needs to be changed and we chose to change the location as the
+lab we were in had its network configuration somewhat changed so we were a bit
+doubtful about it. We went to a different lab and started doing the same thing
+with no variation in results. So after fucking around for 6 hours, &lt;code&gt;we finally thought
+something might be wrong with our code instead of blaming the proxy or Microsoft
+or the unvierse&lt;/code&gt;. We have independently reached the conclusion that using the
+address &lt;code&gt;localhost&lt;/code&gt; might be the problem.&lt;/p&gt;
+
+&lt;p&gt;I didn&amp;#39;t think much about this earlier as being the layman I am, I thought any
+requests coming to the machine (on different addresses - local, global etc) would be
+received by your server when using &lt;code&gt;localhost&lt;/code&gt; as the host. Boy, I couldn&amp;#39;t have been more wrong. &lt;code&gt;localhost&lt;/code&gt; is
+meant for local testing. That&amp;#39;s it. You can&amp;#39;t access a computer running a server
+on &lt;code&gt;localhost&lt;/code&gt; from an external machine. You can&amp;#39;t access the server from
+the same machine using the local IP.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;localhost is a hostname that means this computer and may be used to access the computer&amp;#39;s own network services via its loopback network interface. Using the loopback interface bypasses local network interface hardware. The local loopback mechanism may be useful for testing software during development, independently of any networking configurations. For example, if a computer has been configured to provide a website, directing a locally running web browser to http://localhost may display its home page.
+On most computer systems, &amp;quot;localhost&amp;quot; resolves to the IP address 127.0.0.1, which is the most commonly used IPv4 loopback address, and to the IPv6 loopback address ::1.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This means that whenever you use &lt;code&gt;localhost&lt;/code&gt; or &lt;code&gt;127.0.0.1&lt;/code&gt; to run a server, you
+can&amp;#39;t access the server from other machines.&lt;/p&gt;
+
+&lt;p&gt;We finally found on &lt;code&gt;stackexchange&lt;/code&gt; that the answer to all our problems was
+using &lt;code&gt;0.0.0.0&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In the Internet Protocol version 4 the address 0.0.0.0 is a non-routable meta-address used to designate an invalid, unknown or non applicable target. To give a special meaning to an otherwise invalid piece of data is an application of in-band signaling.
+Uses include:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;The address a host claims as its own when it has not yet been assigned an address. Such as when sending the initial DHCPDISCOVER
+packet when using DHCP.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;The address a host assigns to itself when address request via DHCP has failed, provided the host&amp;#39;s IP stack supports this. This usage has been replaced with the APIPA mechanism in modern operating systems.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A way to specify &amp;quot;any IPv4-host at all&amp;quot;. It is used in this way when specifying a default route.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A way to explicitly specify that the target is unavailable.[1]&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;A way to specify &amp;quot;any IPv4 address at all&amp;quot;. It is used in this way when configuring servers (i.e. when binding listening sockets).   This is known to TCP programmers as INADDR_ANY. (bind(2) binds to addresses, not interfaces.)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This means when you run a server using &lt;code&gt;0.0.0.0&lt;/code&gt; as the host address it
+listens (most of the times) on all the addresses on the machine - &lt;code&gt;localhost&lt;/code&gt;, &lt;code&gt;local IP&lt;/code&gt;, &lt;code&gt;global IP&lt;/code&gt;. If
+you are deploying a server, it is better to use the &lt;code&gt;global IP&lt;/code&gt; of the machine
+rather than using &lt;code&gt;0.0.0.0&lt;/code&gt;. But as &lt;code&gt;Azure&lt;/code&gt; provided us two IP addresses - a local IP - 
+in the network of the VMs and a global, public IP. We just chose to use &lt;code&gt;0.0.0.0&lt;/code&gt;
+without dealing with any intricacies as we already had spent a lot of time
+getting it solved. We first tested it locally and checked if we could connect to
+the server running on a different machine. We couldn&amp;#39;t at first. The new found hope
+we had quickly started to transform into rage. Though we were unsure of using our
+&lt;code&gt;proxy card&lt;/code&gt;,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;When in doubt, blame the proxy.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;we disabled the proxy and tried to connect using the local IP address.
+ It worked. Finally. The guys maintaining the proxy should direct local IP addressess
+to right place and save us the hassle.  We deployed it on the VM and it worked. Clean as a whistle.
+Changing &lt;code&gt;localhost&lt;/code&gt; to &lt;code&gt;0.0.0.0&lt;/code&gt; was the answer and we took more than 6 hours for that.&lt;/p&gt;
+
+&lt;p&gt;So I have acquired a quantum of knowledge I should have possessed years ago
+at the expense of 6 precious hackathon hours.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#39;t judge me. No one is immune  from bouts of stupidity.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 25 Mar 2015 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Never-go-full-localhost/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Never-go-full-localhost/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Xkcd Lock Using I3lock And Xautolock</title>
+        <description>&lt;p&gt;One thing I have just observed is, whenever there are a bunch of assignments (or
+various academic chores) to tend to, a sensor in my brain goes off saying,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Man, I really should write an obscure blog post which has no use to anyone
+whatsoever! &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So whenever you see a new post pop up here, you would know that I
+really should be doing something else. Yet here I am involved in a fuzzy self
+fulfilling prophesy.&lt;/p&gt;
+
+&lt;p&gt;Coming to the point(or the lack of one), this one&amp;#39;s going to be about creating a
+customized lock screen - like &lt;a href=&quot;http://i1-news.softpedia-static.com/images/news2/Ubuntu-12-04-LTS-Has-a-New-Lock-Screen-2.jpg&quot;&gt;the one in Ubuntu&lt;/a&gt;
+, but a simpler one. Whenever I go away from my desk
+for short periods, I leave my laptop as it is. It doesn&amp;#39;t have a screensaver or
+a lock screen with a timeout, so it stays unchanged (no lock or screensaver) when
+I come back. Only when I go away for hours together (as rare as it is), I close
+the lid to put it to sleep. As you can infer, not a big fan of shutdown. My
+uptime right now is &lt;code&gt;17:01:12 up 7 days,  2:06,  9 users,  load average: 0.23, 0.42, 0.45&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Having stubmbled upon &lt;a href=&quot;http://i3wm.org/i3lock/&quot;&gt;i3lock&lt;/a&gt; when browsing &lt;code&gt;i3&lt;/code&gt; related stuff,
+I decided that I should make my visits away from my desk worthwhile by firing up a lock screen with
+rewarding images. You can give a colour or a background image to &lt;code&gt;i3lock&lt;/code&gt; for the
+background. &lt;code&gt;i3lock&lt;/code&gt; fires up only when you specifically call it. &lt;code&gt;xautolock&lt;/code&gt; can be used to fire up
+&lt;code&gt;i3lock&lt;/code&gt; on a timeout (of inactivity) or a gesture. You need to type your
+password to unlock the &lt;code&gt;i3lock&lt;/code&gt; screen.&lt;/p&gt;
+
+&lt;p&gt;One of the few things that the whole word has a consensus on is that &lt;a href=&quot;http://i3wm.org/i3lock/&quot;&gt;xkcd&lt;/a&gt;
+is awesome. You simply can&amp;#39;t get enough of it. Using xkcd comics as the images
+for the lock is the obvious choice. I searched in the DC++ hub in the campus to see 
+if someone had a xkcd collection. Surprisingly, no one did. Putting my
+crawling skills to test, I wrote a &lt;code&gt;node.js&lt;/code&gt; script to download all the xkcd comics
+till date. xkcd had a &lt;code&gt;JSON&lt;/code&gt; format &lt;a href=&quot;http://xkcd.com/4/info.0.json&quot;&gt;which was perfect for crawling using node&lt;/a&gt;.
+The files are saved in the &lt;code&gt;xkcd_comics&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;var fs = require(&amp;#39;fs&amp;#39;),
+    request = require(&amp;#39;request&amp;#39;),
+    path = require(&amp;#39;path&amp;#39;),
+    http = require(&amp;#39;http&amp;#39;);
+var i;
+for (i = 1 ; i &amp;lt;= 1495 ; i++) {
+  var url=&amp;quot;http://xkcd.com/&amp;quot;+i+&amp;quot;/info.0.json&amp;quot;;
+  request({url:url,json:true},function(err,res,body){
+    if(!err){
+      var filename=__dirname+&amp;#39;/xkcd_comics/&amp;#39;+path.basename(body.img);
+      console.log(filename);
+      request.get({url: body.img, encoding: &amp;#39;binary&amp;#39;}, function (err, response, body) {
+        fs.writeFile(filename, body, &amp;#39;binary&amp;#39;, function(err) {
+          if(err)
+            console.log(err);
+          else
+            console.log(&amp;quot;The file was saved!&amp;quot;);
+        }); 
+      });
+    }
+  })
+}&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It worked flawlessly except for &lt;code&gt;http://xkcd.com/404/&lt;/code&gt;. Cheeky bastards. 
+Most of the downloaded images were in &lt;code&gt;jpg&lt;/code&gt; and &lt;code&gt;png&lt;/code&gt; formats. There were a few
+gifs which I didn&amp;#39;t consider for &lt;code&gt;i3lock&lt;/code&gt;. They must have made a switch
+from jpg to png midway through the jig. &lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;i3lock&lt;/code&gt; had a limitation that it only worked with &lt;code&gt;png&lt;/code&gt; images. So I had to convert all
+the jpg images to png images. After first copying all the png images to the
+folder &lt;code&gt;xkcd_comics_png&lt;/code&gt;.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;#!/usr/bin/env python
+#I have started making the switch from bash to python for my scripts.
+import os
+from random import randint
+from subprocess import Popen, PIPE,call
+p = Popen(&amp;quot;ls ~/pro/xkcd/xkcd_comics/*.jpg&amp;quot;, stdout=PIPE, shell=True)
+result=p.communicate()[0].split(&amp;#39;\n&amp;#39;)
+for x in result:
+    dir_name=os.path.dirname(x)
+    #print(dir_name)
+    base=os.path.basename(x)
+    name=os.path.splitext(base)[0]
+    
+    call([&amp;quot;convert&amp;quot;,x,&amp;quot;xkcd_comics_png&amp;quot;+&amp;quot;/&amp;quot;+name+&amp;quot;.png&amp;quot;])&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now having got all the images in the png format, I checked how the image is
+being positioned by the &lt;code&gt;i3lock&lt;/code&gt;. If given an image of resolution less than the screen size,
+it showed it in the top left corner with the remaining space kept blank. To my
+dismay, it had no positioning parameters. The creators wanted the user to alter the
+image to his needs and feed it to &lt;code&gt;i3lock&lt;/code&gt; to ensure that &lt;code&gt;i3lock&lt;/code&gt; wouldn&amp;#39;t get 
+bloated with image handling overhead.&lt;/p&gt;
+
+&lt;p&gt;I tried to obtain higher resolution pics of the comics. &lt;a href=&quot;http://blog.xkcd.com/2007/03/15/in-which-i-lose-the-originals-of-the-last-three-months-of-comics-and-the-laptop-i-create-them-with/&quot;&gt;This incident&lt;/a&gt; extinguished my hopes of obtaining them. Classic no backups case.
+Now I had to convert all the images to my screen resolution. I had the option of blowing up the comics to &lt;code&gt;1366x768&lt;/code&gt;
+or to put the comics at the center of a &lt;code&gt;1366x768&lt;/code&gt; sized image. I chose the blowing
+up, obviously, because it was easier.&lt;/p&gt;
+
+&lt;p&gt;Generating the blown up images in &lt;code&gt;xkdcd_comics_full_png&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;#!/usr/bin/env python
+import os
+from random import randint
+from subprocess import Popen, PIPE,call
+p = Popen(&amp;quot;ls ~/pro/xkcd/xkcd_comics_png/*&amp;quot;, stdout=PIPE, shell=True)
+result=p.communicate()[0].split(&amp;#39;\n&amp;#39;)[0:-1]
+#print(result)
+for x in result:
+    dir_name=os.path.dirname(x)
+    #print(dir_name)
+    base=os.path.basename(x)
+    name=os.path.splitext(base)[0]
+    call([&amp;quot;convert&amp;quot;,&amp;quot;-resize&amp;quot;,&amp;quot;1366x768!&amp;quot;,x,&amp;quot;xkcd_comics_full_png/&amp;quot;+base])&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Armed with the blown up images, I proceeded to write a script named &lt;code&gt;xkcd_i3lock.py&lt;/code&gt;
+to fire up &lt;code&gt;i3lock&lt;/code&gt; with a random xkcd image. &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;#!/usr/bin/env python
+from random import randint
+from subprocess import Popen, PIPE,call
+p = Popen(&amp;quot;ls ~/pro/xkcd/xkcd_comics_full_png/*.png&amp;quot;, stdout=PIPE, shell=True)
+result=p.communicate()[0].split(&amp;#39;\n&amp;#39;)[0:-1]
+n=len(result)
+comic=result[randint(0,n)]
+#saving the choice for reference
+f = open(&amp;#39;/home/sourya/pro/xkcd/choices.txt&amp;#39;, &amp;#39;a&amp;#39;)
+f.write(comic+&amp;quot;\n&amp;quot;)
+f.close()
+call([&amp;quot;i3lock&amp;quot;,&amp;quot;-i&amp;quot;,comic,&amp;quot;-t&amp;quot;])&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I could have used the choices to subsequently remove the used
+images from consideration in the future. But in around 1400 images, the 
+chance of repetitive choices is small. Maybe I will add that when I start
+seeing the same images after some time.
+To manually fire up the screen from the keyboard, define a binding in i3&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bindsym $mod+q exec ~/.i3/xkcd_i3lock.py&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now calling &lt;code&gt;xautolock&lt;/code&gt; to call the script on a timeout or a gesture.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#Put this in the startup 
+xautolock -time 10 -detectsleep -locker &amp;quot;~/.i3/xkcd_i3lock.py&amp;quot; -notify 10 -notifier &amp;quot;notify-send &amp;#39;Locking&amp;#39;&amp;quot; -corners -+00 -cornerdelay 10 -cornerredelay 10 &amp;amp;
+#If you are using i3 put this in the config
+#exec --no-startup-id xautolock -time 10 -detectsleep -locker &amp;quot;~/.i3/xkcd_i3lock.py&amp;quot; -notify 10 -notifier &amp;quot;notify-send &amp;#39;Locking&amp;#39;&amp;quot; -corners -+00 -cornerdelay 10 -cornerredelay 10 &amp;amp;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;An excerpt from the man pages of &lt;code&gt;xautolock&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;-time           Specifies the primary timeout interval. The default is 10 minutes, the minimum is 1 minute, and the maximum is 1 hour.&lt;/p&gt;
+
+&lt;p&gt;-locker         Specifies the locker to be used. The default is xlock. Notice that if locker contains multiple words, it must be  specified
+               between  quotes.   In  order  to  use your PATH to locate the program, xautolock feeds the locker command to /bin/sh, so it
+               should be understandable for whatever shell your /bin/sh is. Because this typically is a Bourne  shell,  ~  expansion  most
+               likely will not work.&lt;/p&gt;
+
+&lt;p&gt;-corners        Define special actions to be taken when the mouse enters one of the corners of the display.  The  default  is  0000,  which
+                       means that no special action is taken.&lt;/p&gt;
+
+&lt;p&gt;-cornerdelay    Specifies the number of seconds to wait before reacting to the mouse entering a &amp;#39;+&amp;#39; corner. The default is 5 seconds.&lt;/p&gt;
+
+&lt;p&gt;-cornerredelay  Specifies  the  number of seconds to wait before reacting again if the current locker exits while the mouse is sitting in a
+               &amp;#39;+&amp;#39; corner. The default is for altsecs to equal secs.&lt;/p&gt;
+
+&lt;p&gt;-notifier       Specifies the notifier to be used. The default is none. This option is only useful in conjunction with -notify. Notice that
+                       if notifier contains multiple words, it must be specified between quotes.  In order to use your PATH to locate the program,
+                       xautolock feeds the notifier command to /bin/sh, so it should be understandable for whatever shell your /bin/sh is. Because
+                       this typically is a Bourne shell, ~ expansion most likely will not work.&lt;/p&gt;
+
+&lt;p&gt;-bell           Specifies  the  loudness of the notification signal in the absence of the -notifier option. The default is 40 percent. This
+                 option is only useful in conjunction with -notify.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Using &lt;code&gt;-+00&lt;/code&gt; int the &lt;code&gt;corners&lt;/code&gt; option means putting the mouse in the
+topright corner fires up the lock and putting the mouse in the top left
+corner prevents the lock being fired up even after inactivity (useful when
+watching movies).&lt;/p&gt;
+
+&lt;p&gt;Here is the ugly yet beautiful result.
+&lt;img src=&quot;/xkcd_1.jpg&quot; alt=&quot;alt tag&quot;&gt;
+&lt;img src=&quot;/xkcd_2.jpg&quot; alt=&quot;alt tag&quot;&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 Mar 2015 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/XKCD-Lock-using-i3lock-and-xautolock/</link>
+        <guid isPermaLink="true">http://ma08.github.io/XKCD-Lock-using-i3lock-and-xautolock/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Working With Vim On Google Drive Via Fuse</title>
+        <description>&lt;p&gt;This one&amp;#39;s going to be a short one (I can sense the relief)
+regarding mounting Google Drive on a linux
+machine and using it to read/write.&lt;/p&gt;
+
+&lt;p&gt;I hated writing in Google Docs without the 
+comfy environment of Vim. The &lt;code&gt;TEXTAREA&lt;/code&gt; mode that Vimperator provides was
+sufficient for editing short texts. But without the full power of Vim,
+editing a huge Google Doc was painful and I grew restless. I tried &lt;a href=&quot;https://github.com/ardagnir/pterosaur&quot;&gt;pterosaur&lt;/a&gt;
+which embeds full-blown Vim in textareas. It gives you all those shortcuts
+which you have built over time in your &lt;code&gt;vimrc&lt;/code&gt;. It would have been the answer
+to my travails if not for the terrible lag. 
+I have given up on having a powerful Vim instance in the browser (for now) and 
+proceeded to check if there was a way to access Google Docs with Vim.  I don&amp;#39;t remember whether I have found &lt;a href=&quot;https://github.com/astrada/google-drive-ocamlfuse&quot;&gt;google-drive-ocamlfuse&lt;/a&gt; on stackoverflow or on r/vim (might be both). It&amp;#39;s basically a &lt;a href=&quot;http://en.wikipedia.org/wiki/Filesystem_in_Userspace&quot;&gt;FUSE file system&lt;/a&gt;
+for Google Drive written in OCaml(first time I have heard of that).&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Filesystem in Userspace (FUSE) is an operating system mechanism for Unix-like computer
+operating systems that lets non-privileged users create their own file systems without
+editing kernel code. This is achieved by running file system code in user space while the
+FUSE module provides only a &amp;quot;bridge&amp;quot; to the actual kernel interfaces.&lt;/p&gt;
+
+&lt;p&gt;Virtual file system
+FUSE is particularly useful for writing virtual file systems. Unlike traditional file systems
+that essentially save data to and retrieve data from disk, virtual filesystems do not actually
+store data themselves. They act as a view or translation of an existing file system or storage device.
+In principle, any resource available to a FUSE implementation can be exported as a file system&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It&amp;#39;s a great tool for working with Google Drive on linux machines. Using it with
+Vim is just one of the use cases. Here is how the installation goes for Ubuntu.
+Others might need to build it from source (&lt;a href=&quot;https://github.com/astrada/google-drive-ocamlfuse#configuration-and-installation&quot;&gt;check the repo&lt;/a&gt;).&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ sudo add-apt-repository ppa:alessandro-strada/ppa
+$ sudo apt-get update
+$ sudo apt-get install google-drive-ocamlfuse&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And it works out of the box. No need to get yourself lost in editing
+configuration files or browsing man-pages to make yourself look cool
+even though you really have no clue what you are supposed to look for.&lt;/p&gt;
+
+&lt;p&gt;Having said that, you might want to have a look at &lt;code&gt;~/.gdfuse/default/config&lt;/code&gt; if you want
+to tinker with some of the options.&lt;/p&gt;
+
+&lt;p&gt;After the installation is done, you need to give it the authentication.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ google-drive-ocamlfuse&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It opens the authentication page and the usual stuff that goes with Google
+Authentication follows.&lt;/p&gt;
+
+&lt;p&gt;Now comes the moment we (this might be the first time the word we had a singular vibe)
+have been waiting for. Mount it like you mean it.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ mkdir mountdir
+$ google-drive-ocamlfuse mount mountdir&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now fire up a file in Vim to edit/create and use the good ole :w to save it.
+It might take some time (default is 60 seconds) to the changes to be 
+reflected in the Drive.&lt;/p&gt;
+
+&lt;p&gt;To unmount,&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ fusermount -u mountdir&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I know that you can&amp;#39;t edit Word Processor files like &lt;code&gt;.doc&lt;/code&gt; and &lt;code&gt;.docx&lt;/code&gt; in Vim.
+Bummer. I am willing to concede that for now and keep using &lt;code&gt;.txt&lt;/code&gt; and &lt;code&gt;.md&lt;/code&gt; when I need
+to write something long and need it to be shared/collaborated.
+No, that situation is not nonexistant.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 08 Mar 2015 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Working-with-Vim-on-Google-Drive-via-FUSE/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Working-with-Vim-on-Google-Drive-via-FUSE/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Idleness</title>
+        <description>&lt;p&gt;On the back of a terrific semester and midst an extremely productive vacation, I
+am back to subject you to more seemingly intelligent drivel. This one&amp;#39;s not
+going to contain technical mumbo-jumbo meaning you have one less excuse to run
+away.&lt;/p&gt;
+
+&lt;p&gt;This one&amp;#39;s going to be about idleness. And by that I don&amp;#39;t mean being lazy,
+     dormant, inactive or any other synonyms which I would generally use to give
+     an honest account of myself. Idleness in the sense that you are forced to
+     do nothing - absolutely nothing and you are only left with thinking to keep
+     yourself entertained.&lt;/p&gt;
+
+&lt;p&gt;Due to circumstances, I was left in such a situation recently where I knew that
+I had to deal with atleast 30 minutes of this &amp;#39;idleness&amp;#39;.  I had grown used to
+browsing reddit or watching Seinfeld whenever I had nothing to do or I felt like
+doing nothing. I was perplexed by this challenge life has presented me. It was
+new and I didn&amp;#39;t like it. It was like encountering an old acquaintance and you
+try to recollect what you did the last time you hung out together.  It&amp;#39;s been a
+very long time since I dealt with such idleness.  Once I got hold of the
+objective - to keep myself entertained(or occupied) with no external help
+whatsoever, things started to fall in place.  The infinitesimal portion of my
+brain responsible for producing innovative/useful ideas gathered all its courage
+to put in a strong word and had some jolly time before its wings were cut off.
+The major portion of my brain which is responsible for making questionable
+decisions like writing this post won out as usual and led my thought process
+towards thinking about this forced idleness. I tried to recollect what I did in
+similar situations previously. I had a hard time remembering the details, and I
+settled towards the conclusion that random thought might have been the answer to
+such testing situations in my past life. This time I decided I will control my
+thought process in a more structured way - kind of like switching to manual from
+autopilot. When I was thinking along those lines, I had this spark of an idea -
+the kind of one you wouldn&amp;#39;t want to act upon normally. It was to write about
+this forced idleness and how people react to it.&lt;/p&gt;
+
+&lt;p&gt;For some reason, I thought it was a brilliant idea and here I am writing about
+it - trying to churn out pointless drool. This idleness has become a rare
+thing with the advent of smartphones, the interwebs and &amp;#39;busier&amp;#39; lives .  I
+would go as far as saying that this forced idleness is a boon in some way.  You
+have no other way out except to think or plan. I don&amp;#39;t know about others but it
+was a long time before I took a step back and had an honest view of what&amp;#39;s going
+in my life and chalked out some vague plan for the immediate future. Most of our
+thought process is reactionary. Almost every thought is a response to some
+stimulus. Idleness allows you to have some seedish thought which is quite rare
+in the modern urban life. 30 minutes of idle thinking is a long time when
+compared to 30 minutes of watching a sitcom. It is not unreasonable to assume
+that during these long periods of random thinking, you are bound to have(not in
+    my case though) some ideas which are worth pondering/acting upon.  Whether
+you act accordingly or not is another matter but the implantation of such
+precious ideas is important (if the movie Inception rings a bell you would know
+    where I am going). So in such enduring periods of idleness, you can stumble
+upon something that can lead your life towards a whole new tangent. All this
+might look a bit obvious, but hey I need to jot down something here.  I guess
+all I want to say that is you rarely find yourself dealing such forced idleness,
+    the next time you encounter it, cherish it.&lt;/p&gt;
+
+&lt;p&gt;Thus, I debunk the &amp;#39;wise&amp;#39; old saying that&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;An idle mind is the devil&amp;#39;s workshop.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If that&amp;#39;s the case, you are the devil.&lt;/p&gt;
+
+&lt;p&gt;No matter how bad this post turns out to be, I will be proud that I managed
+to write something about nothing.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 18 Dec 2014 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Idleness/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Idleness/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Tiling Window Managers</title>
+        <description>&lt;p&gt;I am delighted to inform you that my &lt;a href=&quot;http://ma08.github.io/Optimal-Proxy-Chooser/&quot;&gt;last post on selecting an optimal proxy
+server&lt;/a&gt; had such an impact that
+the &lt;a href=&quot;https://www.facebook.com/IIT.Kgp/posts/10152672045405409&quot;&gt;CIC guys have decided(conspired) to introduce a single load balancer&lt;/a&gt;
+to make sure that people wouldn&amp;#39;t run my script and thus saved mankind from 
+potential doom. Nice work CIC!!.&lt;/p&gt;
+
+&lt;p&gt;This one is going to be about &lt;code&gt;tiling window managers&lt;/code&gt; - pertaining to Linux. I
+have no knowledge of window managers on &lt;code&gt;Windows&lt;/code&gt;, so you are on your own
+regarding that. &lt;a href=&quot;http://en.wikipedia.org/wiki/Tiling_window_manager&quot;&gt;Tiling window managers&lt;/a&gt;
+are great for organizing your screen space coupled with efficient keyboard
+bindings. The key to tiling is to not to waste any screenspace(you can have
+ floating windows but that&amp;#39;s more of an exception). Most of the time, the
+windows are nonoverlapping unlike traditional GUI models.  Anyone who prefers to
+keep his hands on the keyboard and hates using the mouse should give a shot at
+using a window manager with customizable bindings.&lt;/p&gt;
+
+&lt;p&gt;Here is a peek on what&amp;#39;s in offer. A screen from my &lt;code&gt;i3 wm&lt;/code&gt;.
+&lt;img src=&quot;http://i.imgur.com/fx83Xxf.png&quot; alt=&quot;alt tag&quot;&gt;.&lt;/p&gt;
+
+&lt;p&gt;I tried both &lt;a href=&quot;http://awesome.naquadah.org/&quot;&gt;awesome&lt;/a&gt; and &lt;a href=&quot;http://i3wm.org/&quot;&gt;i3&lt;/a&gt;
+and decided to go with &lt;code&gt;i3&lt;/code&gt; due to its excellent &lt;a href=&quot;http://i3wm.org/docs&quot;&gt;docs&lt;/a&gt;.
+&lt;code&gt;i3&lt;/code&gt; has also got amazing customizability. Configuration can&amp;#39;t be easier and
+it has got an active &lt;a href=&quot;http://i3wm.org/contact&quot;&gt;IRC Channel&lt;/a&gt; where you can
+head over for help. &lt;code&gt;i3&lt;/code&gt; has its own learning curve but the descriptive
+documentation makes it smooth. &lt;/p&gt;
+
+&lt;h2&gt;Workspaces&lt;/h2&gt;
+
+&lt;p&gt;A Workspace is something of a virtual desktop where you can organize windows. I
+usually have workspaces specific to chat clients, terminals et al. You can
+transfer windows between different workspaces. If you are editing a file and
+chatting with a friend simultaneously, then you can put both of the windows in a 
+workspace for easier navigation back and forth. So think of a workspace as a
+dynamic collection of windows. Workspaces are numbered &lt;code&gt;1,2,3...&lt;/code&gt;. In theory you
+can have infinite workspaces, but by default with the keybindings &lt;code&gt;i3&lt;/code&gt; ships with
+you can access 10 workspaces at most (Mod+&amp;lt;Workspace number&amp;gt;).&lt;/p&gt;
+
+&lt;h2&gt;Tree Stucture&lt;/h2&gt;
+
+&lt;p&gt;This is at the core of &lt;code&gt;i3&lt;/code&gt;. The windows in the workspace have a layout in the form
+of a recursive tree structure. The tree structure combined with the horizontal
+and verticals orientations enable you to have quite complex arrangements of
+windows. I am avoiding the exact details involved (as it is already quite well put
+in the documentation), &lt;a href=&quot;http://i3wm.org/docs/userguide.html#_the_tree_consists_of_containers&quot;&gt;head over
+here&lt;/a&gt; to
+know more about how it works in detail. You need to grasp atleast the basics of
+this to know what you are doing regarding the windows&amp;#39; layout/orientation.&lt;/p&gt;
+
+&lt;h2&gt;Configuration&lt;/h2&gt;
+
+&lt;p&gt;Customizability is what sells &lt;code&gt;i3&lt;/code&gt;. You have got lots of options to get what
+feels right to you. Don&amp;#39;t expect to fall in love with &lt;code&gt;i3&lt;/code&gt; right after you
+install it. 
+You have the configuration files at &lt;code&gt;~/.i3/&lt;/code&gt;. &lt;code&gt;~/.i3/config&lt;/code&gt; is the main
+configuration file, any other files can be referenced from this file. You put in
+all your keybindings, application/workspace specific actions, startup
+applications in the &lt;code&gt;config&lt;/code&gt; file. I will provide snippets from my personal
+&lt;code&gt;config&lt;/code&gt; file in the following sections. I would suggest you to look at popular
+configuration files to startoff with. Here&amp;#39;s &lt;a href=&quot;https://github.com/ma08/i3-wm-config/blob/master/config&quot;&gt;my configuration
+file&lt;/a&gt;. I had forked
+some bloke&amp;#39;s configuration but in the end most of my configuration ended up
+being different. You need to put in your own touch to reap rewards. 
+Make it as personal as you can, that&amp;#39;s the whole point.&lt;/p&gt;
+
+&lt;h2&gt;Keybindings&lt;/h2&gt;
+
+&lt;p&gt;Before starting off I would like to say a couple of things about how I prefer to
+work. As expected, using the mouse is blasphemy. So mouse is the last option.
+Another important thing is the position of your hands. The default position is
+&lt;code&gt;asdf&lt;/code&gt; for the left hand and &lt;code&gt;jkl;&lt;/code&gt; for the right. I hate to move my right hand
+to the arrow keys as it messes up with the flow. That&amp;#39;s what makes &lt;code&gt;vim&lt;/code&gt; so
+special.  You are always at the default position. You save the  precious
+milliseconds wasted by moving your right hand between the default position and
+the arrow keys. So this was my motivation when designing the keybindings for
+&lt;code&gt;i3&lt;/code&gt;. I wanted to use keybindings accessible at the default position. So
+vimstyle bindings were the way to go, especially as &lt;code&gt;vim&lt;/code&gt; was already part of my
+muscle memory. You need to set the bindings which you feel most comfortable
+with.&lt;/p&gt;
+
+&lt;p&gt;The keybindings are of the form&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bindsym &amp;lt;binding&amp;gt; &amp;lt;action&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3&gt;Mod key&lt;/h3&gt;
+
+&lt;p&gt;This is at the heart of the keybindings. The Mod key is used in
+combination with other keys for a specific action. &lt;code&gt;Super(Windows)&lt;/code&gt; and &lt;code&gt;Alt&lt;/code&gt;
+seem to be the popular choices for the Mod key.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;set $mod Mod4
+#Mod4 means Super or Windows
+
+#keybindings
+bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+c kill
+# split in horizontal orientation
+bindsym $mod+w split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+#and a whole lot more
+
+#Access workspace by its number
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+#and so on
+
+#go to last visited workspace
+bindsym $mod+b workspace back_and_forth&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3&gt;Vimish Navigation bindings&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;i3&lt;/code&gt; ships with the default &lt;code&gt;jkl;&lt;/code&gt; keys for navigation. But I changed that to
+&lt;code&gt;hjkl&lt;/code&gt;to make it feel like &lt;code&gt;vim&lt;/code&gt;. I had changed all the bindings to make
+navigation close to &lt;code&gt;vim&lt;/code&gt;.  I added keybindings to navigate adjacent workspaces
+which &lt;code&gt;i3&lt;/code&gt; doesn&amp;#39;t put in it&amp;#39;s default config file&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bindsym $mod+h focus left  #focus window on the left
+bindsym $mod+j focus down  #focus window below
+bindsym $mod+k focus up    #focus window above
+bindsym $mod+l focus right #focus window on the right
+
+bindsym $mod+Control+k workspace prev #move to the workspace on the left
+bindsym $mod+Control+j workspace next #move to the workspace on the right
+bindsym $mod+Control+h workspace prev
+bindsym $mod+Control+l workspace next
+
+# move focused window
+bindsym $mod+Shift+h move left #move focused window to left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The rest of the navigation bindings are similar. &lt;a href=&quot;https://github.com/ma08/i3-wm-config/blob/master/config&quot;&gt;Head over here&lt;/a&gt; and snoop over all the other navigation bindings. &lt;/p&gt;
+
+&lt;h3&gt;Resize mode&lt;/h3&gt;
+
+&lt;p&gt;You might be wondering how you would resize the windows without using mouse.
+&lt;code&gt;i3&lt;/code&gt; has a &lt;code&gt;resize&lt;/code&gt; mode where you use the defined keybindings to change the
+windows&amp;#39; dimensions. &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mode &amp;quot;resize&amp;quot; {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 3 px or 3 ppt
+        bindsym j resize grow height 3 px or 3 ppt
+        bindsym k resize shrink height 3 px or 3 ppt
+        bindsym l resize grow width 3 px or 3 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode &amp;quot;default&amp;quot;
+        bindsym Escape mode &amp;quot;default&amp;quot;
+}
+
+bindsym $mod+r mode &amp;quot;resize&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Once resizing needs are finished, you press the &lt;code&gt;Return&lt;/code&gt;(Enter) key to exit the resize
+mode.&lt;/p&gt;
+
+&lt;h3&gt;Startup Applications&lt;/h3&gt;
+
+&lt;p&gt;You can define specific applications to startup in specific workspaces at the
+startup.  &lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;exec --no-startup-id i3-msg &amp;#39;workspace 1; exec gnome-system-monitor&amp;#39;
+exec --no-startup-id i3-msg &amp;#39;workspace 2; exec rhythmbox&amp;#39;
+exec --no-startup-id i3-msg &amp;#39;workspace 3; exec gnome-terminal&amp;#39;
+exec --no-startup-id i3-msg &amp;#39;workspace 4; exec firefox&amp;#39;
+exec --no-startup-id i3-msg &amp;#39;workspace 8; exec google-chrome&amp;#39;
+exec --no-startup-id i3-msg &amp;#39;workspace 9; exec nautilus&amp;#39;
+exec --no-startup-id i3-msg &amp;#39;workspace 10; exec linuxdcpp&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3&gt;Media Keys&lt;/h3&gt;
+
+&lt;p&gt;I use &lt;code&gt;Rhythmbox&lt;/code&gt;for songs and defined keybindings to switch songs, play
+and pause.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;bindsym Shift+Control+j exec rhythmbox-client --next
+bindsym Shift+Control+k exec rhythmbox-client --previous
+bindsym Shift+Control+space exec rhythmbox-client --play-pause&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Note that &lt;code&gt;exec&lt;/code&gt; is equivalent to running a terminal command. So you can define
+a keybinding to execute anything if you can write a terminal(shell) command for it.
+This calls for serious exploitation!!.&lt;/p&gt;
+
+&lt;h2&gt;Endnote&lt;/h2&gt;
+
+&lt;p&gt;This is just the basic part. You can have much more complex configurations which
+are context based which I haven&amp;#39;t discussed. I also haven&amp;#39;t touched on the status bar.
+&lt;a href=&quot;http://i3wm.org/i3status/&quot;&gt;i3status&lt;/a&gt; is the status bar displayed at the bottom.
+It is also highly customizable. &lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s a screencast I have created to show you some of the awesome stuff &lt;code&gt;i3&lt;/code&gt;
+is capable of. Observe when the workspace is changing and which window is focused.&lt;/p&gt;
+
+&lt;iframe src=&quot;https://player.vimeo.com/video/107232089&quot; width=&quot;900&quot; height=&quot;375&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; 
+
+&lt;p&gt;All in all window managers make life much more productive - especially for programmers.
+If you are dealing with multiple windows(applications) consistently and you are
+a keyboard person, using a popular window manager is the logical choice.
+It takes effort to get into this paradigm which is definitely worth it. There&amp;#39;s no
+looking back once you are hooked. Have a look at both
+&lt;a href=&quot;http://awesome.naquadah.org/&quot;&gt;awesome&lt;/a&gt; and &lt;a href=&quot;http://i3wm.org/&quot;&gt;i3&lt;/a&gt; and decide for
+yourselves.&lt;/p&gt;
+
+&lt;p&gt;Let me know your opinion on window managers in the comments. Thanks.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 24 Sep 2014 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Tiling-Window-Managers/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Tiling-Window-Managers/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Optimal Proxy Chooser</title>
+        <description>&lt;p&gt;I am back to outdo myself at presenting another pointless &lt;code&gt;bash script&lt;/code&gt; which has the potential to be a disgrace to the programming community. Maybe this will serve as documentation on how one can get carried away while writing code. &lt;/p&gt;
+
+&lt;p&gt;People who access the interwebs behind a &lt;code&gt;proxy-server&lt;/code&gt; will know the pain when things get slow and you have no clue which &lt;code&gt;proxy-server&lt;/code&gt; will work out and helplessly refer to the stars&amp;#39; alignment to choose a server. When KGP had one of its &lt;a href=&quot;http://hotmeme.net/media/i/d/6/r0W-how-cable-companies-think.jpg&quot;&gt;We bring you internet from the 90s&lt;/a&gt; moments, I had decided that there has got to be a way to choose a proxy based on the bandwidth all the proxies were offering. Either there isn&amp;#39;t any popular service to do that or my googling skills need serious refinement. So I set out to implement a poor man&amp;#39;s method of choosing an optimal &lt;code&gt;proxy-server&lt;/code&gt; from a multitude of choices and set that as the &lt;code&gt;System-Wide Proxy&lt;/code&gt;. The script is only for &lt;code&gt;Linux&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have tested this on &lt;code&gt;Ubuntu 14.04&lt;/code&gt; (I know it&amp;#39;s not the linuxest of OSes out there, but it rocks my boat). Identifying the optimal &lt;code&gt;proxy-server&lt;/code&gt; should work on any Linux distro. Setting the system proxy is specific to &lt;code&gt;Ubuntu&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;I used &lt;code&gt;curl&lt;/code&gt; to download a test file (I chose a random file of 3MB. Replace the url based on your preferences - be sure to test that the download is working throught curl before using it) and got the request time. Choosing the minimum request time among the options, I selected the optimal server. I haven&amp;#39;t got the faintest of ideas whether this is theoretically the &lt;code&gt;optimal&lt;/code&gt; server, but I guess it works for a naive implementation.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s call this &lt;code&gt;proxychooser.sh&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;minind=0 #index for the optimal server
+min=&amp;quot;100000.000&amp;quot; #minimum of the request times
+
+#Storing the proxy servers&amp;#39; addresses in an array.
+#Bonus points if the you extract the addresses from a config file.
+proxies=(
+&amp;quot;http://144.16.192.213:8080&amp;quot;
+&amp;quot;http://144.16.192.216:8080&amp;quot;
+&amp;quot;http://144.16.192.217:8080&amp;quot;
+&amp;quot;http://144.16.192.218:8080&amp;quot;
+&amp;quot;http://144.16.192.245:8080&amp;quot;
+&amp;quot;http://144.16.192.247:8080&amp;quot;
+&amp;quot;http://10.3.100.211:8080&amp;quot;
+&amp;quot;http://10.3.100.212:8080&amp;quot;)
+
+#Looping over the array
+for (( c=0; c&amp;lt;${#proxies[@]}; c++ ))
+do
+    var=$(curl --no-sessionid -x &amp;quot;${proxies[c]}&amp;quot;  -o ./proxyfile.pdf -s -w %{time_total}\\n http://www.cred.be/download/download.php?file=sites/default/files/CredCrunch15.pdf)
+    #var is the request time (string)
+    # -x is used to give the proxy to be used
+    # proxyfile is the downloaded dummy
+    # replace the url with one of your choice
+    echo ${proxies[c]} $var
+    #note that all values are in strings. So using bc for comparisions
+    # output is &amp;quot;1&amp;quot; for true and &amp;quot;0&amp;quot; for false
+    var2=$(echo &amp;quot;$min &amp;gt; $var&amp;quot; | bc)
+
+    # request time is 0.000 when it is not successful
+    if [ &amp;quot;$var&amp;quot; != &amp;quot;0.000&amp;quot; ]&amp;amp;&amp;amp;[ &amp;quot;$var2&amp;quot; == &amp;quot;1&amp;quot; ];
+    then
+        #saving the current minimum
+        min=$var
+        minind=$c
+    fi
+done
+
+if [ &amp;quot;$min&amp;quot; == &amp;quot;0.000&amp;quot; ];
+then
+    echo &amp;quot;Possible network problems, no connection&amp;quot;
+    return 0
+fi
+
+echo &amp;quot;Best proxy is ----&amp;quot; ${proxies[minind]}
+
+
+#------Insert Ubuntu specific code below--------&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This gets the optimal proxy server.&lt;/p&gt;
+
+&lt;p&gt;I have toiled over an hour googling to find a generic method to set the &lt;code&gt;System-Wide Http Proxy&lt;/code&gt; on &lt;code&gt;Linux&lt;/code&gt; which doesn&amp;#39;t involve a restart. Using the enivronment variable &lt;code&gt;http_proxy&lt;/code&gt; with &lt;code&gt;export&lt;/code&gt; doesn&amp;#39;t work at all as it is restricted to that shell/session. Editing files like &lt;code&gt;/etc/environment&lt;/code&gt; didn&amp;#39;t solve anything even when the &lt;code&gt;network-manager&lt;/code&gt; is restarted. So I had to go with the &lt;code&gt;Ubuntu&lt;/code&gt; specific approach, apologies to all the pure Linuxers out there if you feel let down. &lt;/p&gt;
+
+&lt;p&gt;A cool dude helped me  on &lt;a href=&quot;http://unix.stackexchange.com/questions/152260/set-ubuntu-system-proxy-settings-without-restart-from-commandline&quot;&gt;stackexchange&lt;/a&gt; regarding setting the &lt;code&gt;System-Wide Proxy&lt;/code&gt; on &lt;code&gt;Ubuntu&lt;/code&gt;. Add the following to the end of the above script &lt;code&gt;proxychooser.sh&lt;/code&gt;. I have got to admit that I don&amp;#39;t fully understand how the following works, will have to dig into &lt;code&gt;Ubuntu&lt;/code&gt;&amp;#39;s documentation sometime.&lt;/p&gt;
+
+&lt;p&gt;If you feel this is overkill, you can always manually set your proxy through GUI after getting the optimal server.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;source ./bus.sh
+proxies3=(
+&amp;quot;144.16.192.213&amp;quot;
+&amp;quot;144.16.192.216&amp;quot;
+&amp;quot;144.16.192.217&amp;quot;
+&amp;quot;144.16.192.218&amp;quot;
+&amp;quot;144.16.192.245&amp;quot;
+&amp;quot;144.16.192.247&amp;quot;
+&amp;quot;10.3.100.211&amp;quot;
+&amp;quot;10.3.100.212&amp;quot;)
+
+HTTP_PROXY_HOST=${proxies3[minind]}
+HTTP_PROXY_PORT=8080
+HTTPS_PROXY_HOST=${proxies3[minind]}
+HTTPS_PROXY_PORT=8080
+
+gsettings set org.gnome.system.proxy.http host &amp;quot;$HTTP_PROXY_HOST&amp;quot;
+gsettings set org.gnome.system.proxy.http port &amp;quot;$HTTP_PROXY_PORT&amp;quot;
+gsettings set org.gnome.system.proxy.https host &amp;quot;$HTTPS_PROXY_HOST&amp;quot;
+gsettings set org.gnome.system.proxy.https port &amp;quot;$HTTPS_PROXY_PORT&amp;quot;
+
+sudo sed -i.bak &amp;#39;/http[s]::proxy/Id&amp;#39; /etc/apt/apt.conf
+sudo tee -a /etc/apt/apt.conf &amp;lt;&amp;lt;EOF
+Acquire::http::proxy &amp;quot;http://$HTTP_PROXY_HOST:$HTTP_PROXY_PORT/&amp;quot;;
+Acquire::https::proxy &amp;quot;http://$HTTPS_PROXY_HOST:$HTTPS_PROXY_PORT/&amp;quot;;
+EOF
+
+sudo sed -i.bak &amp;#39;/http[s]_proxy/Id&amp;#39; /etc/environment
+sudo tee -a /etc/environment &amp;lt;&amp;lt;EOF
+http_proxy=&amp;quot;http://$HTTP_PROXY_HOST:$HTTP_PROXY_PORT/&amp;quot;
+https_proxy=&amp;quot;http://$HTTPS_PROXY_HOST:$HTTPS_PROXY_PORT/&amp;quot;
+EOF&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Save a file &lt;code&gt;bus.sh&lt;/code&gt; alongside &lt;code&gt;proxychooser.sh&lt;/code&gt;. I got this from &lt;a href=&quot;http://askubuntu.com/questions/457016/how-to-change-gsettings-via-remote-shell&quot;&gt;stackexchange&lt;/a&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;#!/bin/bash
+
+# Remember to run this script using the command &amp;quot;source ./filename.sh&amp;quot;
+
+# Search these processes for the session variable 
+# (they are run as the current user and have the DBUS session variable set)
+compatiblePrograms=( nautilus kdeinit kded4 pulseaudio trackerd )
+
+# Attempt to get a program pid
+for index in ${compatiblePrograms[@]}; do
+    PID=$(pidof -s ${index})
+    if [[ &amp;quot;${PID}&amp;quot; != &amp;quot;&amp;quot; ]]; then
+        break
+    fi
+done
+if [[ &amp;quot;${PID}&amp;quot; == &amp;quot;&amp;quot; ]]; then
+    echo &amp;quot;Could not detect active login session&amp;quot;
+    return 1
+fi
+
+QUERY_ENVIRON=&amp;quot;$(tr &amp;#39;\0&amp;#39; &amp;#39;\n&amp;#39; &amp;lt; /proc/${PID}/environ | grep &amp;quot;DBUS_SESSION_BUS_ADDRESS&amp;quot; | cut -d &amp;quot;=&amp;quot; -f 2-)&amp;quot;
+if [[ &amp;quot;${QUERY_ENVIRON}&amp;quot; != &amp;quot;&amp;quot; ]]; then
+    export DBUS_SESSION_BUS_ADDRESS=&amp;quot;${QUERY_ENVIRON}&amp;quot;
+    echo &amp;quot;Connected to session:&amp;quot;
+    echo &amp;quot;DBUS_SESSION_BUS_ADDRESS=${DBUS_SESSION_BUS_ADDRESS}&amp;quot;
+else
+    echo &amp;quot;Could not find dbus session ID in user environment.&amp;quot;
+    return 1
+fi
+
+return 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Make sure both the scripts are executable by &lt;code&gt;sudo chmod +x scriptname.sh&lt;/code&gt; and run the &lt;code&gt;proxychooser.sh&lt;/code&gt; whenever you feel a need to change the proxy.&lt;/p&gt;
+
+&lt;p&gt;Here are the &lt;code&gt;gists&lt;/code&gt; for the working scripts. &lt;a href=&quot;https://gist.github.com/ma08/94020d6f960378122779&quot;&gt;proxychooser.sh&lt;/a&gt; and &lt;a href=&quot;https://gist.github.com/ma08/2d5126421ca3b288ff43&quot;&gt;bus.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I am counting on this post&amp;#39;s popularity in KGP being minimal. A &lt;code&gt;Game-Theoretic&lt;/code&gt; analysis(or common sense) would deduce that the &lt;code&gt;chosen optimal server might no longer be optimal&lt;/code&gt; if the majority of the users opt for that server. Don&amp;#39;t disappoint me junta. Be sure to expect some detailed posts on &lt;a href=&quot;http://en.wikipedia.org/wiki/Game_theory&quot;&gt;Game Theory&lt;/a&gt; in the future. Thanks.&lt;/p&gt;
+
+&lt;p&gt;Please point out any gaping mistakes or suggest anything that might improve the approach.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 26 Aug 2014 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Optimal-Proxy-Chooser/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Optimal-Proxy-Chooser/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Books I Dig</title>
+        <description>&lt;p&gt;So this one&amp;#39;s going to be about books. If literature is not your thing, maybe staring at this post might not be the best way to pass your time. But if you would like to try some day, suit yourself. I read fiction mostly. I tried non-fiction but never really got into it. Many have tried to make me read inspirational propoganda like &lt;code&gt;A monk who sold his ferrari&lt;/code&gt;, you know the kind. Fortunately, I never gave in. So I will give you my favourite fiction works and let you decide.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Disclaimer: Just a list of novels I&amp;#39;ve read and suggest you to consider. I don&amp;#39;t claim them to be the eternal classics that everyone&amp;#39;s gotta read. Sure I will miss &lt;s&gt;some&lt;/s&gt; most of the best ones that have been there, feel free to suggest some yourself below in the comments.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I can go and blabber about how good each one is but I am going to keep it short and simple. I will give some seemingly random extracts to givesome insight.&lt;/p&gt;
+
+&lt;p&gt;Let us get the classics off our back. In no particular order:&lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/To_Kill_a_Mockingbird&quot;&gt;To Kill a Mocking Bird&lt;/a&gt; by Harper Lee&lt;/h2&gt;
+
+&lt;p&gt;I read this one during the first year of my 11th class(Intermediate) on &lt;a href=&quot;http://2.bp.blogspot.com/-_bNRwjgZcjw/TbBB2AO8bwI/AAAAAAAAAJo/ryQz3dZVSFE/s1600/nokia_2700_classic_01.jpg&quot;&gt;this phone&lt;/a&gt;. Yes, I was desperate to get away from all the constant slogging during JEE(Coaching) days.  No wonder I got my glasses during class 12. It was my only source of entertainment and boy it was a pleasure. &lt;/p&gt;
+
+&lt;p&gt;This is undoubtedly a timeless classic. Any decent book reader worth his salt will have read this at some point of his life. The author deals with the conditions prevailing around 1930s and all the prejudice that the oppressed were subjected to. You have an unconvential hero in the form of &lt;code&gt;Atticus Finch&lt;/code&gt;, a middle-aged lawyer and a widowed father of two kids. He stands up for human values inspite of the social stigmas that existed at that time. Couldn&amp;#39;t be better explained:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The one thing that doesn&amp;#39;t abide by majority rule is a person&amp;#39;s conscience&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One of the best things about the book is the POV(Point of View) of a kid - &lt;code&gt;Scout Finch&lt;/code&gt;. We see the world in the book without any tinted glass that generally comes when dealing with a POV.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;No, everybody&amp;#39;s gotta learn, nobody&amp;#39;s born knowin&amp;#39;. That Walter&amp;#39;s as smart as he can be, he just gets held back sometimes because he has to stay out and help his daddy. Nothin&amp;#39;s wrong with him. Naw, Jem, I think there&amp;#39;s just one kind of folks. Folks&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;One of the things that I liked the most is that it states how you should judge a man for himself, never on the word of others - through &lt;code&gt;Boo&lt;/code&gt;. Definitely a book for everyone. The movie is also a must-watch. But as always first the book, then the reel.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Catch-22&quot;&gt;Catch 22&lt;/a&gt; by Joseph Heller.&lt;/h2&gt;
+
+&lt;p&gt;I read this in my first semester at Kharagpur - buying it from the 2nd hand bookstore guy just by reading the description on the back.
+A classic in its own sense, maybe not in a conventional way. It is a satirical work and deals with war. The book is disguised as a comedy as it raises some fundamental questions regarding war. We have a POV of &lt;code&gt;Yossarain&lt;/code&gt; who doesn&amp;#39;t see any point in fighting and wants to go home ( like &lt;a href=&quot;http://www.dvdactive.com/images/reviews/screenshot/2002/5/blackadder2_copy0.jpg&quot;&gt;Blackadder&lt;/a&gt; in &lt;a href=&quot;http://en.wikipedia.org/wiki/Blackadder_Goes_Forth&quot;&gt;Blackadder Goes Fourth&lt;/a&gt;). The catch itself:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;There was only one catch and that was Catch-22, which specified that a concern for one&amp;#39;s safety in the face of dangers that were real and immediate was the process of a rational mind. Orr was crazy and could be grounded. All he had to do was ask; and as soon as he did, he would no longer be crazy and would have to fly more missions. Orr would be crazy to fly more missions and sane if he didn&amp;#39;t, but if he were sane he had to fly them. If he flew them he was crazy and didn&amp;#39;t have to; but if he didn&amp;#39;t want to he was sane and had to. Yossarian was moved very deeply by the absolute simplicity of this clause of Catch-22 and let out a respectful whistle.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We deal with his efforts to get away from the war and come to understand a bit about being a soldier. I had a great time reading this, this should be on the top of your to-read list. &lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Swami_and_Friends&quot;&gt;Swami and Friends&lt;/a&gt; by R.K.Narayan&lt;/h2&gt;
+
+&lt;p&gt;I bet many of you might have cringed seeing it in a list along side &lt;code&gt;Catch-22&lt;/code&gt; and &lt;code&gt;To Kill a Mockingbird&lt;/code&gt;, but I consider this to be a worthwhile classic. I read this immediately after reading &lt;code&gt;To Kill a Mocking Bird&lt;/code&gt; on my glorious phone. It is set in the suburban British India around 1920s IRC. Many might consider it to be a children&amp;#39;s book. Trust me, you will not regret reading it. Even a reread once in a while is enticing. R.K.Narayan is one of the best writers this country has produced. We again have a POV of a 10 year old kid, &lt;code&gt;Swami&lt;/code&gt; and revisit all that we had to deal with as a kid irrespective of the times we grew up in.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;If he(Mani) were Swaminathan, he would have closed the whole incident at the beginning by hurling an ink-bottle, if nothing bigger was available, at the teacher&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You will definitely have a sense of nostalgia reading this. It is a simple book and a delightful read. &lt;/p&gt;
+
+&lt;p&gt;So with the classics(in my opinion) out of the way, I will deal with some contemporary works that I have enjoyed.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/The_Fourth_Protocol&quot;&gt;The Fourth Protocol&lt;/a&gt; by Frederick Forsyth&lt;/h2&gt;
+
+&lt;p&gt;This one was also a random buy from the 2nd hand book shop (before I got my luxurious phone, nexu5, I used to read physical books too, like a savage). 
+A cold war spy novel involving &lt;code&gt;KGB&lt;/code&gt; and &lt;code&gt;MI6&lt;/code&gt;, the Russian and the British agencies repectively. A pleasant surprise if you haven&amp;#39;t read any  thing of this kind yet. Involves lots of schemes, plots and subplots. The ending is as good as it gets. A must read if you are into cold war fiction. There is also a &lt;a href=&quot;www.imdb.com/title/tt0093044/&quot;&gt;movie&lt;/a&gt; it seems, starring none other than &lt;code&gt;Pierce Brosnan&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;On Dan Brown&amp;#39;s books&lt;/h2&gt;
+
+&lt;p&gt;I have read &lt;code&gt;Deception Point&lt;/code&gt;, &lt;code&gt;Digital Fottress&lt;/code&gt;, &lt;code&gt;Da Vinci Code&lt;/code&gt;, &lt;code&gt;Angels and Demons&lt;/code&gt; and &lt;code&gt;Lost Symbol&lt;/code&gt; during my schooling days due to a mate shoving them down my throat. The first two books are written in a different style to the others. I have thoroughly enjoyed &lt;code&gt;Da Vinci Code&lt;/code&gt;. &lt;code&gt;Angels and Demons&lt;/code&gt; and it was a good read. And then when I finished &lt;code&gt;Lost Symbol&lt;/code&gt;, it struck me. He has effectively published the same book three times. Don&amp;#39;t get me wrong on this, I have nothing against &lt;code&gt;Dan Brown&lt;/code&gt;. But if you take a step back and consider the three books, they have essentially the same plot flow. It took me three books to realise this and I passed &lt;code&gt;Inferno&lt;/code&gt; when it came.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Fool me once, shame on you; fool me twice, shame on me.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I don&amp;#39;t think I will read another &lt;code&gt;Dan Brown&lt;/code&gt; book after what I&amp;#39;ve been through reading &lt;code&gt;Lost Symbol&lt;/code&gt;. I am tired of reading the same stuff. It was like taking an amalgam of a Cryptography course and a Religious Histories course over and over. I would suggest you to read &lt;a href=&quot;&quot;&gt;Da Vinci Code&lt;/a&gt; and &lt;a href=&quot;&quot;&gt;Deception Point&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;On Jeffrey Archer&amp;#39;s books&lt;/h2&gt;
+
+&lt;p&gt;Jeffrey Archer is the typical modern day author. He has been consistently producing best-sellers. His books are packed with suspense, humor and have what it makes you to turn pages. They might not be the most classiest works, but they sure are terrific entertainers. &lt;code&gt;Kane and Abel&lt;/code&gt; is a blast.&lt;code&gt;Prisoner of Birth&lt;/code&gt; is also a fantastic piece of work. &lt;code&gt;Shall we tell the President&lt;/code&gt; is a typical Americanish novel. &lt;code&gt;False Impression&lt;/code&gt; also deserves a mention. Man, I am running out of adjectives. I would suggest you to read both &lt;code&gt;Kane and Abel&lt;/code&gt; and &lt;code&gt;Prisoner of Birth&lt;/code&gt;. It can&amp;#39;t get any better.&lt;/p&gt;
+
+&lt;p&gt;He also has written some amazing short-story collections. &lt;a href=&quot;http://en.wikipedia.org/wiki/And_Thereby_Hangs_a_Tale&quot;&gt;And Thereby Hangs a Tale&lt;/a&gt;,[To Cut a Long Story Short ](http://en.wikipedia.org/wiki/To&lt;em&gt;Cut&lt;/em&gt;a&lt;em&gt;Long&lt;/em&gt;Story&lt;em&gt;Short&lt;/em&gt;(book)), &lt;a href=&quot;http://en.wikipedia.org/wiki/Cat_O%27Nine_Tales&quot;&gt;Cat O&amp;#39;Nine Tales&lt;/a&gt; and [A Twist in the Tale](http://en.wikipedia.org/wiki/A&lt;em&gt;Twist&lt;/em&gt;in&lt;em&gt;the&lt;/em&gt;Tale_(book)) all have gripping stories in between them. Some of them are inspired from his real life experiences. Make sure you read atleast one of them.&lt;/p&gt;
+
+&lt;h3&gt;Clifton Chronicles&lt;/h3&gt;
+
+&lt;p&gt;A series of seven books covering the lifetime of &lt;code&gt;Arthur Clifton&lt;/code&gt;. 4 books have been released and the &lt;a href=&quot;https://www.facebook.com/JeffreyArcherAuthor/photos/a.195406117168850.45763.148047278571401/763685423674247/?type=1&amp;theater&quot;&gt;5th is in the blocks&lt;/a&gt;, releasing on &lt;code&gt;Feb 2015&lt;/code&gt;. &lt;/p&gt;
+
+&lt;p&gt;The first book &lt;code&gt;Only Time will Tell&lt;/code&gt; is one of the best finctional works I have ever read. It made me rate &lt;code&gt;Archer&lt;/code&gt; highly. It was quality. Trust me, &lt;a href=&quot;http://youtu.be/rjkLKKgOMRY?t=25s&quot;&gt;no ragrets&lt;/a&gt;. It covers the time period between 1920 and the begining of Second World War. Set in Britain, it has great British elements&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;The English are the biggest snobs on earth Harry.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If this book isn&amp;#39;t anywhere at the top of your to-read list, especially if you&amp;#39;re into fiction, you don&amp;#39;t interest me.
+The 2nd book in the series, &lt;code&gt;Sins of Your Father&lt;/code&gt;, is also a pretty good read. But the 3rd and 4th were nowhere near the 1st and the 2nd. Hope it will change with the 5th one.&lt;/p&gt;
+
+&lt;h2&gt;A Song of Ice and Fire by GRRM&lt;/h2&gt;
+
+&lt;p&gt;This is really not my genre. I was never into fantasy. I didn&amp;#39;t read any of &lt;code&gt;Tolkien&lt;/code&gt;&amp;#39;s works or &lt;code&gt;Harry Potter&lt;/code&gt;. I haven&amp;#39;t even seen the movies (OMG!!!) seriously. But I started watching &lt;code&gt;Game Of Thrones&lt;/code&gt; during my 2nd year at Kharagpur. As I was discussing with it a friend, he commented on how the books provide great detail the show was missing out. I didn&amp;#39;t really take it seriously and never gave it a try. But this guy&amp;#39;s propoganda increased&lt;sup&gt;exponentially&lt;/sup&gt;  over time with his hints of spoilers. I had finally decided to read the books in the summer. As I started my internship, my daily commute clocked around 90 minutes(to and fro). Around 15 minutes to wait for the city bus(if I was really unlucky) and around 30 minutes for the journey itself. So I started reading &lt;code&gt;A Game of Thrones&lt;/code&gt; on my phone(upgraded to nexus, thanks to my bro) during the commute daily. Once I got into it, there was no way out. There were times I nearly missed my stop and didn&amp;#39;t notice the bus arriving at the stop. I started reading it late night until 3 or 4 am as my work hours were flexible. So I finished the five books in two months. I would have to admit that I blazed through some parts. The &lt;code&gt;Mereen&lt;/code&gt; arc irritated me to no end. I love &lt;code&gt;Kelly C&lt;/code&gt; and her &lt;code&gt;Dr.Agon&lt;/code&gt;s but it was a really slow part of the books. Especially in the last book, &lt;code&gt;A Dance with Dragons&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;ASOIAF&lt;/code&gt; is the definition of epicness, not in the vastness of its world, but &lt;a href=&quot;http://imgur.com/gallery/his4W&quot;&gt;its characters&lt;/a&gt;(click on the link only if you are acquainted with the books/show). The world building that goes on into the books is amazing. You&amp;#39;ve gotto love this &lt;a href=&quot;http://reddit.com/r/asoiaf&quot;&gt;subreddit&lt;/a&gt;. The theories are excruciating. But the main theme of &lt;code&gt;ASOIAF&lt;/code&gt; is not the fantasy. It&amp;#39;s not about the dragons or the whitewalkers. It&amp;#39;s about human nature. &lt;code&gt;It&amp;#39;s about the human heart in conflict with itself&lt;/code&gt;.This quote from &lt;code&gt;GRRM&lt;/code&gt; himself sums up it perfectly:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Characters are what it’s all about for me. And always has been as a writer. In addition to fantasy I’ve written some horror, I’ve written some science fiction. There are people in some of those fields who feel that these are very, very different things; that science fiction and fantasy are like polar opposites. I’ve never believed that, I believe that they’re only different in their furniture. And they’re only different form other types of literature, mainstream literature, literary fiction, in the furnishings. It’s all about the people; it’s all about the characters. You know, William Faulkner in his Nobel Prize acceptance speech said ‘The only thing worth writing about is the human heart in conflict with itself.’ And ever since I heard that quote it’s sort of been my mantra. I don’t think it matters if you’re in a castle or if you’re in a spaceship or if you’re writing a perfectly mainstream novel about someone in contemporary life, you know, having difficulty with whatever. If you have the characters, if you bring the characters to life, you get that human heart in conflict with itself, you’ll have something worth reading – at least something I would like to read&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It teaches you that the world ain&amp;#39;t black and white. It&amp;#39;s all grey. Another quote from GRRM&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I admire Tolkien greatly. His books had enormous influence on me. And the trope that he sort of established—the idea of the Dark Lord and his Evil Minions—in the hands of lesser writers over the years and decades has not served the genre well. It has been beaten to death. The battle of good and evil is a great subject for any book and certainly for a fantasy book, but I think ultimately the battle between good and evil is weighed within the individual human heart and not necessarily between an army of people dressed in white and an army of people dressed in black. When I look at the world, I see that most real living breathing human beings are grey.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You would learn to learn love the characters. I will try to give a sneak peak through the quotes without revealing anything.
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;code&gt;Stannins&lt;/code&gt; the Mannis about Lord Celtigar&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Had I shown him the contents of my privy he would have called it admirable too&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;Tyrion&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;My mind is my weapon. My brother has his sword, King Robert has his warhammer, and I have my mind...And a mind needs books as a sword needs a whetstone, if it is to keep its edge&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;Little Finger&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;You wear your honor like a suit of armor, Stark. You think it keeps you safe, but all it does is weigh you down and make it hard for you to move.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code&gt;Maester Aemon&lt;/code&gt; &lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Love is the death of duty. If the day should ever come when your lord father was forced to choose between honor on the one hand and those he loves on the other, what would he do?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;An exchange between two characters.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;His Grace is growing fond of you.&amp;quot;&lt;br /&gt;
+&amp;quot;I can tell. He only threatened to behead me twice.&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I&amp;#39;ve saved the good stuff for you to read. I made sure not to include any spoilers. Start reading on a vacation  as reading on working days can be pretty tiring as you can&amp;#39;t stop. &lt;/p&gt;
+
+&lt;h2&gt;John Dies at the End by David Wong.&lt;/h2&gt;
+
+&lt;p&gt;All hail Korrok.&lt;br /&gt;
+This is what I call an unclassic book. I discovered it while searching for a decent read on this fantastic &lt;a href=&quot;http://www.reddit.com/r/books/&quot;&gt;subreddit&lt;/a&gt;. It is so bad that it&amp;#39;s good. The writer has an unconvential style(or some would say it&amp;#39;s bullshit) and it worked on me . It had an effect on my writing. I&amp;#39;m worried about the repurcussions as I am more inlcined to jot expletives than ever before. Might not be your cup of tea, but an avid reader should have had atleast one of this kind in his bag by now. It&amp;#39;s basically utter crap. But the crapiness gets to the point that it&amp;#39;s good. I had chuckled a lot while reading this - not smiled, chuckled. It was sort of a guilty pleasure. I don&amp;#39;t remember too many books leaving a wide grin on my face.  What got me was the style of writing - a different experience from all the above stated ones. Here is a peek which contains no foul language.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;Hello?&amp;quot;&lt;br /&gt;
+&amp;quot;Dave? This is John. Your pimp says bring the heroin shipment tonight, or he&amp;#39;ll be forced to stick you. Meet him where we buried the Korean whore. The one without the goatee.&amp;quot; &lt;br /&gt;
+That was code. It meant &amp;quot;Come to my place as soon as you can, it&amp;#39;s important.&amp;quot; Code, you know, in case the phone was bugged.&lt;br /&gt;
+&amp;quot;John, it&amp;#39;s three in the -&amp;quot;&lt;br /&gt;
+&amp;quot;Oh and don&amp;#39;t forget, tomorrow is the day we kill the president.&amp;quot;&lt;br /&gt;
+Click.&lt;br /&gt;
+He was gone. The last part was code for, &amp;quot; Stope and pick me up some cigarettes on the way&amp;quot;&lt;br /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As long as it&amp;#39;s code, it&amp;#39;s ok right?&lt;/p&gt;
+
+&lt;p&gt;Ok that&amp;#39;s it. This might have been the most lamest book listings you have seen, but atleast you have seen it. Thanks.
+As I said something about literature at the start, have some free &lt;a href=&quot;https://www.youtube.com/watch?v=DFYBGrkz9h0&quot;&gt;poems&lt;/a&gt;[HD].&lt;/p&gt;
+
+&lt;p&gt;I am willing to bet that there might have been atleast one typo or a grammatical mistake hiding above somewhere. If you spot it, please &lt;a href=&quot;https://github.com/ma08/ma08.github.com/blob/source/_posts/2014-08-06-Books-I-dig.md&quot;&gt;sumbit a pull request&lt;/a&gt; if you&amp;#39;re acquainted with &lt;code&gt;github&lt;/code&gt;. &lt;/p&gt;
+</description>
+        <pubDate>Wed, 06 Aug 2014 00:00:00 +0530</pubDate>
+        <link>http://ma08.github.io/Books-I-dig/</link>
+        <guid isPermaLink="true">http://ma08.github.io/Books-I-dig/</guid>
+        
+        
+      </item>
+    
   </channel>
 </rss>

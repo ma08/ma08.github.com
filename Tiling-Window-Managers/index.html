@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A clueless, curious programmer's ramblings">
+
+    <title>Tiling Window Managers - BLOB</title>
+
+    <link rel="canonical" href="http://ma08.github.io/Tiling-Window-Managers/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/clean-blog.css">
+
+    <!-- Pygments Github CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BLOB</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/about/">About ma08</a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+    <!-- Post Header -->
+<header class="intro-header" style="background-image: url('/img/shebang.jpg')">
+
+
+    <script type="text/javascript" src="/js/mathjax.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Tiling Window Managers</h1>
+                    
+                    <span class="meta"><!--Posted--> by ma08 on September 24, 2014</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+				<p>I am delighted to inform you that my <a href="http://ma08.github.io/Optimal-Proxy-Chooser/">last post on selecting an optimal proxy
+server</a> had such an impact that
+the <a href="https://www.facebook.com/IIT.Kgp/posts/10152672045405409">CIC guys have decided(conspired) to introduce a single load balancer</a>
+to make sure that people wouldn&#39;t run my script and thus saved mankind from 
+potential doom. Nice work CIC!!.</p>
+
+<p>This one is going to be about <code>tiling window managers</code> - pertaining to Linux. I
+have no knowledge of window managers on <code>Windows</code>, so you are on your own
+regarding that. <a href="http://en.wikipedia.org/wiki/Tiling_window_manager">Tiling window managers</a>
+are great for organizing your screen space coupled with efficient keyboard
+bindings. The key to tiling is to not to waste any screenspace(you can have
+ floating windows but that&#39;s more of an exception). Most of the time, the
+windows are nonoverlapping unlike traditional GUI models.  Anyone who prefers to
+keep his hands on the keyboard and hates using the mouse should give a shot at
+using a window manager with customizable bindings.</p>
+
+<p>Here is a peek on what&#39;s in offer. A screen from my <code>i3 wm</code>.
+<img src="http://i.imgur.com/fx83Xxf.png" alt="alt tag">.</p>
+
+<p>I tried both <a href="http://awesome.naquadah.org/">awesome</a> and <a href="http://i3wm.org/">i3</a>
+and decided to go with <code>i3</code> due to its excellent <a href="http://i3wm.org/docs">docs</a>.
+<code>i3</code> has also got amazing customizability. Configuration can&#39;t be easier and
+it has got an active <a href="http://i3wm.org/contact">IRC Channel</a> where you can
+head over for help. <code>i3</code> has its own learning curve but the descriptive
+documentation makes it smooth. </p>
+
+<h2>Workspaces</h2>
+
+<p>A Workspace is something of a virtual desktop where you can organize windows. I
+usually have workspaces specific to chat clients, terminals et al. You can
+transfer windows between different workspaces. If you are editing a file and
+chatting with a friend simultaneously, then you can put both of the windows in a 
+workspace for easier navigation back and forth. So think of a workspace as a
+dynamic collection of windows. Workspaces are numbered <code>1,2,3...</code>. In theory you
+can have infinite workspaces, but by default with the keybindings <code>i3</code> ships with
+you can access 10 workspaces at most (Mod+&lt;Workspace number&gt;).</p>
+
+<h2>Tree Stucture</h2>
+
+<p>This is at the core of <code>i3</code>. The windows in the workspace have a layout in the form
+of a recursive tree structure. The tree structure combined with the horizontal
+and verticals orientations enable you to have quite complex arrangements of
+windows. I am avoiding the exact details involved (as it is already quite well put
+in the documentation), <a href="http://i3wm.org/docs/userguide.html#_the_tree_consists_of_containers">head over
+here</a> to
+know more about how it works in detail. You need to grasp atleast the basics of
+this to know what you are doing regarding the windows&#39; layout/orientation.</p>
+
+<h2>Configuration</h2>
+
+<p>Customizability is what sells <code>i3</code>. You have got lots of options to get what
+feels right to you. Don&#39;t expect to fall in love with <code>i3</code> right after you
+install it. 
+You have the configuration files at <code>~/.i3/</code>. <code>~/.i3/config</code> is the main
+configuration file, any other files can be referenced from this file. You put in
+all your keybindings, application/workspace specific actions, startup
+applications in the <code>config</code> file. I will provide snippets from my personal
+<code>config</code> file in the following sections. I would suggest you to look at popular
+configuration files to startoff with. Here&#39;s <a href="https://github.com/ma08/i3-wm-config/blob/master/config">my configuration
+file</a>. I had forked
+some bloke&#39;s configuration but in the end most of my configuration ended up
+being different. You need to put in your own touch to reap rewards. 
+Make it as personal as you can, that&#39;s the whole point.</p>
+
+<h2>Keybindings</h2>
+
+<p>Before starting off I would like to say a couple of things about how I prefer to
+work. As expected, using the mouse is blasphemy. So mouse is the last option.
+Another important thing is the position of your hands. The default position is
+<code>asdf</code> for the left hand and <code>jkl;</code> for the right. I hate to move my right hand
+to the arrow keys as it messes up with the flow. That&#39;s what makes <code>vim</code> so
+special.  You are always at the default position. You save the  precious
+milliseconds wasted by moving your right hand between the default position and
+the arrow keys. So this was my motivation when designing the keybindings for
+<code>i3</code>. I wanted to use keybindings accessible at the default position. So
+vimstyle bindings were the way to go, especially as <code>vim</code> was already part of my
+muscle memory. You need to set the bindings which you feel most comfortable
+with.</p>
+
+<p>The keybindings are of the form</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bindsym &lt;binding&gt; &lt;action&gt;</code></pre></figure>
+
+<h3>Mod key</h3>
+
+<p>This is at the heart of the keybindings. The Mod key is used in
+combination with other keys for a specific action. <code>Super(Windows)</code> and <code>Alt</code>
+seem to be the popular choices for the Mod key.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">set $mod Mod4
+#Mod4 means Super or Windows
+
+#keybindings
+bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+c kill
+# split in horizontal orientation
+bindsym $mod+w split h
+# split in vertical orientation
+bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+#and a whole lot more
+
+#Access workspace by its number
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+#and so on
+
+#go to last visited workspace
+bindsym $mod+b workspace back_and_forth</code></pre></figure>
+
+<h3>Vimish Navigation bindings</h3>
+
+<p><code>i3</code> ships with the default <code>jkl;</code> keys for navigation. But I changed that to
+<code>hjkl</code>to make it feel like <code>vim</code>. I had changed all the bindings to make
+navigation close to <code>vim</code>.  I added keybindings to navigate adjacent workspaces
+which <code>i3</code> doesn&#39;t put in it&#39;s default config file</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bindsym $mod+h focus left  #focus window on the left
+bindsym $mod+j focus down  #focus window below
+bindsym $mod+k focus up    #focus window above
+bindsym $mod+l focus right #focus window on the right
+
+bindsym $mod+Control+k workspace prev #move to the workspace on the left
+bindsym $mod+Control+j workspace next #move to the workspace on the right
+bindsym $mod+Control+h workspace prev
+bindsym $mod+Control+l workspace next
+
+# move focused window
+bindsym $mod+Shift+h move left #move focused window to left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right</code></pre></figure>
+
+<p>The rest of the navigation bindings are similar. <a href="https://github.com/ma08/i3-wm-config/blob/master/config">Head over here</a> and snoop over all the other navigation bindings. </p>
+
+<h3>Resize mode</h3>
+
+<p>You might be wondering how you would resize the windows without using mouse.
+<code>i3</code> has a <code>resize</code> mode where you use the defined keybindings to change the
+windows&#39; dimensions. </p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mode &quot;resize&quot; {
+        # These bindings trigger as soon as you enter the resize mode
+
+        bindsym h resize shrink width 3 px or 3 ppt
+        bindsym j resize grow height 3 px or 3 ppt
+        bindsym k resize shrink height 3 px or 3 ppt
+        bindsym l resize grow width 3 px or 3 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode &quot;default&quot;
+        bindsym Escape mode &quot;default&quot;
+}
+
+bindsym $mod+r mode &quot;resize&quot;</code></pre></figure>
+
+<p>Once resizing needs are finished, you press the <code>Return</code>(Enter) key to exit the resize
+mode.</p>
+
+<h3>Startup Applications</h3>
+
+<p>You can define specific applications to startup in specific workspaces at the
+startup.  </p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">exec --no-startup-id i3-msg &#39;workspace 1; exec gnome-system-monitor&#39;
+exec --no-startup-id i3-msg &#39;workspace 2; exec rhythmbox&#39;
+exec --no-startup-id i3-msg &#39;workspace 3; exec gnome-terminal&#39;
+exec --no-startup-id i3-msg &#39;workspace 4; exec firefox&#39;
+exec --no-startup-id i3-msg &#39;workspace 8; exec google-chrome&#39;
+exec --no-startup-id i3-msg &#39;workspace 9; exec nautilus&#39;
+exec --no-startup-id i3-msg &#39;workspace 10; exec linuxdcpp&#39;</code></pre></figure>
+
+<h3>Media Keys</h3>
+
+<p>I use <code>Rhythmbox</code>for songs and defined keybindings to switch songs, play
+and pause.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bindsym Shift+Control+j exec rhythmbox-client --next
+bindsym Shift+Control+k exec rhythmbox-client --previous
+bindsym Shift+Control+space exec rhythmbox-client --play-pause</code></pre></figure>
+
+<p>Note that <code>exec</code> is equivalent to running a terminal command. So you can define
+a keybinding to execute anything if you can write a terminal(shell) command for it.
+This calls for serious exploitation!!.</p>
+
+<h2>Endnote</h2>
+
+<p>This is just the basic part. You can have much more complex configurations which
+are context based which I haven&#39;t discussed. I also haven&#39;t touched on the status bar.
+<a href="http://i3wm.org/i3status/">i3status</a> is the status bar displayed at the bottom.
+It is also highly customizable. </p>
+
+<p>Here&#39;s a screencast I have created to show you some of the awesome stuff <code>i3</code>
+is capable of. Observe when the workspace is changing and which window is focused.</p>
+
+<iframe src="https://player.vimeo.com/video/107232089" width="900" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+
+<p>All in all window managers make life much more productive - especially for programmers.
+If you are dealing with multiple windows(applications) consistently and you are
+a keyboard person, using a popular window manager is the logical choice.
+It takes effort to get into this paradigm which is definitely worth it. There&#39;s no
+looking back once you are hooked. Have a look at both
+<a href="http://awesome.naquadah.org/">awesome</a> and <a href="http://i3wm.org/">i3</a> and decide for
+yourselves.</p>
+
+<p>Let me know your opinion on window managers in the comments. Thanks.</p>
+
+
+                <hr>
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/Optimal-Proxy-Chooser/" data-toggle="tooltip" data-placement="top" title="Optimal Proxy Chooser">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/Idleness/" data-toggle="tooltip" data-placement="top" title="Idleness">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'sourya4'; // required: replace example with your forum shortname
+  var disqus_identifier = '_posts/2014-09-24-Tiling-Window-Managers.md';
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http:/disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http:/disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+
+
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    <li>
+                        <a href="https://github.com/ma08">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://stackoverflow.com/users/3465519">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+                <p class="copyright text-muted">Copyright &copy; BLOB 2021</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-51744607-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js "></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js "></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/clean-blog.min.js "></script>
+
+
+</body>
+
+</html>
