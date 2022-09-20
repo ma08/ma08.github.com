@@ -49,7 +49,7 @@ I don't think I will read another `Dan Brown` book after what I've been through 
 ##On Jeffrey Archer's books
 Jeffrey Archer is the typical modern day author. He has been consistently producing best-sellers. His books are packed with suspense, humor and have what it makes you to turn pages. They might not be the most classiest works, but they sure are terrific entertainers. `Kane and Abel` is a blast.`Prisoner of Birth` is also a fantastic piece of work. `Shall we tell the President` is a typical Americanish novel. `False Impression` also deserves a mention. Man, I am running out of adjectives. I would suggest you to read both `Kane and Abel` and `Prisoner of Birth`. It can't get any better.
 
-He also has written some amazing short-story collections. [And Thereby Hangs a Tale](http://en.wikipedia.org/wiki/And_Thereby_Hangs_a_Tale),[To Cut a Long Story Short ](http://en.wikipedia.org/wiki/To_Cut_a_Long_Story_Short_(book\)), [Cat O'Nine Tales](http://en.wikipedia.org/wiki/Cat_O%27Nine_Tales) and [A Twist in the Tale](http://en.wikipedia.org/wiki/A_Twist_in_the_Tale_(book\)) all have gripping stories in between them. Some of them are inspired from his real life experiences. Make sure you read atleast one of them.
+He also has written some amazing short-story collections. [And Thereby Hangs a Tale](http://en.wikipedia.org/wiki/And_Thereby_Hangs_a_Tale),[To Cut a Long Story Short ](https://en.wikipedia.org/wiki/To_Cut_a_Long_Story_Short_(short_story_collection)), [Cat O'Nine Tales](http://en.wikipedia.org/wiki/Cat_O%27Nine_Tales) and [A Twist in the Tale](https://en.wikipedia.org/wiki/A_Twist_in_the_Tale_(short_story_collection)) all have gripping stories in between them. Some of them are inspired from his real life experiences. Make sure you read atleast one of them.
 
 ###Clifton Chronicles
 A series of seven books covering the lifetime of `Arthur Clifton `. 4 books have been released and the [5th is in the blocks](https://www.facebook.com/JeffreyArcherAuthor/photos/a.195406117168850.45763.148047278571401/763685423674247/?type=1&theater), releasing on `Feb 2015`. 
@@ -108,6 +108,6 @@ As long as it's code, it's ok right?
 Ok that's it. This might have been the most lamest book listings you have seen, but atleast you have seen it. Thanks.
 As I said something about literature at the start, have some free [poems](https://www.youtube.com/watch?v=DFYBGrkz9h0)[HD].
 
-I am willing to bet that there might have been atleast one typo or a grammatical mistake hiding above somewhere. If you spot it, please [sumbit a pull request](https://github.com/ma08/ma08.github.com/blob/source/_posts/2014-08-06-Books-I-dig.md) if you're acquainted with `github`. 
+I am willing to bet that there might have been atleast one typo or a grammatical mistake hiding above somewhere. If you spot it, please [submit a pull request](https://github.com/ma08/ma08.github.com/blob/source/_posts/2014-08-06-Books-I-dig.md) if you're acquainted with `github`. 
 
 
